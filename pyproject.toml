@@ -1,0 +1,102 @@
+[project]
+name = "packet-mind"
+version = "0.1.0"
+description = "Using neural networks for modeling of network communication"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "torchinfo==1.8.0",
+    "matplotlib==3.10.5",
+    "torchmetrics==1.8.1",
+    "pydantic==2.11.7",
+    "pydantic-settings==2.10.1"
+]
+
+[project.optional-dependencies]
+cpu = [
+    "torch~=2.7.0",
+    "torchvision~=0.22.0",
+]
+cu128 = [
+    "torch~=2.7.0",
+    "torchvision~=0.22.0",
+]
+rocm63 = [
+    "torch~=2.7.0",
+    "torchvision~=0.22.0",
+    "pytorch-triton-rocm~=3.3.0"
+]
+xpu = [
+    "torch~=2.7.0",
+    "torchvision~=0.22.0",
+    "pytorch-triton-xpu~=3.3.0"
+]
+
+[tool.uv]
+conflicts = [
+    [
+        { extra = "cpu" },
+        { extra = "cu128" },
+        { extra = "rocm63" },
+        { extra = "xpu" },
+    ],
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu128", extra = "cu128" },
+    { index = "pytorch-rocm63", extra = "rocm63" },
+    { index = "pytorch-xpu", extra = "xpu" },
+]
+torchvision = [
+    { index = "pytorch-cpu", extra = "cpu" },
+    { index = "pytorch-cu128", extra = "cu128" },
+    { index = "pytorch-rocm63", extra = "rocm63" },
+    { index = "pytorch-xpu", extra = "xpu" },
+]
+pytorch-triton-rocm = [
+    { index = "pytorch-rocm63", extra = "rocm63" },
+]
+pytorch-triton-xpu = [
+    { index = "pytorch-xpu", extra = "xpu" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-rocm63"
+url = "https://download.pytorch.org/whl/rocm6.3"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-xpu"
+url = "https://download.pytorch.org/whl/xpu"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "ruff==0.12.8",
+    "pyright==1.1.403"
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+lint.select = [
+    "ALL", # include all the rules, including new ones
+]
+lint.ignore = [
+    "D104", #  Missing docstring in public package.
+    "D100", # Missing docstring in public module.
+    "D203", # `incorrect-blank-line-before-class` (D203) and `no-blank-line-before-class` (D211) are incompatible.
+    "D213", # `multi-line-summary-first-line` (D212) and `multi-line-summary-second-line` (D213) are incompatible
+]
