@@ -1,0 +1,1 @@
+This directory contains trained models in pickle format.

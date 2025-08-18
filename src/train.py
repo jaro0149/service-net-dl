@@ -84,6 +84,10 @@ def _run() -> None:
         targets=all_targets,
     )
 
+    # save a trained model with the current time in the filename
+    model_path = f"models/model_{time.strftime('%Y%m%d_%H%M%S')}.pt"
+    torch.save(rnn.state_dict(), model_path)
+    logger.info("Saved trained model to %s", model_path)
 
 if __name__ == "__main__":
     _run()
