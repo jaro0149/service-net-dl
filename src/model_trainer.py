@@ -9,8 +9,8 @@ from torch.optim import Optimizer
 from torch.utils.data import Subset
 from torchmetrics import Metric
 
-from src.settings import TrainingSettings
-from src.torch_utils import IterableSubset
+from settings import TrainingSettings
+from torch_utils import IterableSubset
 
 logger = logging.getLogger(__name__)
 

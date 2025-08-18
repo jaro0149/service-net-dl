@@ -8,14 +8,14 @@ from torch.optim import SGD
 from torch.utils import data
 from torchmetrics import Accuracy
 
-from src.char_rnn import CharRNN
-from src.forecaster import Forecaster
-from src.input_transforms import N_LETTERS
-from src.model_trainer import ModelTrainer
-from src.names_dataset import NamesDataset
-from src.plotter import plot_confusion_matrix, plot_loss_and_accuracy
-from src.settings import DatasetSettings, ModelSettings, TrainingSettings
-from src.torch_utils import get_device, log_model_info
+from char_rnn import CharRNN
+from forecaster import Forecaster
+from input_transforms import N_LETTERS
+from model_trainer import ModelTrainer
+from names_dataset import NamesDataset
+from plotter import plot_confusion_matrix, plot_loss_and_accuracy
+from settings import DatasetSettings, ModelSettings, TrainingSettings
+from torch_utils import get_device, log_model_info
 
 logging.basicConfig(
     level=logging.INFO,

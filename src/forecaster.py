@@ -2,8 +2,8 @@ import torch
 from torch.nn import Module
 from torch.utils.data import Subset
 
-from src.output_transforms import label_idx_from_output
-from src.torch_utils import IterableSubset
+from output_transforms import label_idx_from_output
+from torch_utils import IterableSubset
 
 
 class Forecaster:

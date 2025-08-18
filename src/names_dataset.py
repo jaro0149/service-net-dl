@@ -3,7 +3,7 @@ from pathlib import Path
 from torch import Tensor, long, tensor
 from torch.utils.data import Dataset
 
-from src.input_transforms import line_to_tensor
+from input_transforms import line_to_tensor
 
 
 class NamesDataset(Dataset):
