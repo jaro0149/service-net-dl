@@ -1,0 +1,363 @@
+SS7
+Signaling System No 7
+ISUP
+ISDN User Part
+Q931
+ISDN Dchannel signaling
+R2 Signaling
+CAS R2
+PRI
+Primary Rate Interface signaling
+H225
+H323 call signaling
+H245
+H323 control protocol
+MGCP
+Media Gateway Control Protocol
+MEGACO
+H248
+SIP
+Session Initiation Protocol
+voice deployments
+SDP
+voice session setup
+RTP
+Realtime Transport Protocol
+voice payloads
+RTCP
+RTP Control Protocol
+voice streams
+T38
+Fax over IP
+telephony environment
+SRTP
+Secure RTP
+voice
+G711
+PCMU
+PCMA
+G722
+G7231
+G726
+G728
+G729
+GSMFR
+GSM Full Rate
+GSMHR
+GSM Half Rate
+GSMEFR
+GSM Enhanced Full Rate
+AMRNB
+Adaptive MultiRate Narrowband
+AMRWB
+Adaptive MultiRate Wideband
+EVS
+Enhanced Voice Services
+VoLTE 5G
+iLBC
+Internet Low Bitrate Codec
+SILK
+VoIP
+Skype
+Opus
+in voice mode
+Speex
+VoLTE SIP
+IMS signaling for voice
+IMS
+IP Multimedia Subsystem
+RTP AMR in VoLTE
+EVS in VoLTE VoNR
+EVS in VoLT
+EVS in VoNR
+TRAU frames
+GSM voice transport
+A interface
+GSM voice signaling
+IuCS
+UMTS CircuitSwitched voice
+NBAP
+Node B Application Part
+UMTS voice control
+VoNR IMS SIP
+5G voice
+CAS
+Channel Associated Signaling
+voice trunks
+MF R2
+MultiFrequency R2 signaling
+DTMF
+Dualtone multifrequency signaling
+inband for voice calls
+QSIG
+PBX signaling for voice
+H323
+umbrella for IP voice systems
+Skinny Client Control Protocol
+SCCP
+Cisco VoIP phones
+IAX
+IAX2
+InterAsterisk eXchange protocol
+VoIP voice
+V152
+Voice over IP for modem passthrough
+Voice over IP for fax passthrough
+H324
+Voice over circuitswitched mobile networks
+3G video voice calls
+H450
+Supplementary services in H323 voice
+H235
+Security for H323 voice
+H341
+H323 voice system management
+H332
+Voice conferencing extensions in H323
+H320
+ISDNbased voice conferencing
+H321
+Voice over ATM
+H322
+Voice over guaranteed QoS LANs
+H324M
+voice support
+mobile circuitswitched multimedia
+H460
+NAT traversal for H323 voice
+H281
+Farend camera control in voice video calls
+G7111
+wideband extension of G711
+G718
+wideband lowcomplexity voice codec
+G719
+fullband audio codec
+G7221
+wideband codec
+Siren
+G7222
+AMRWB standardization
+G723
+ADPCM
+ADPCM variant for voice
+G729A
+optimized G729 for voice
+G729B
+silence suppression
+G7291
+wideband scalable extension
+G727
+embedded ADPCM for voice
+LPC10
+lowbitrate voice codec
+Linear Predictive Coding
+LPCNet
+modern LPCbased neural codec
+modern LPCbased neural codec for speech
+speech
+MELP
+Mixed Excitation Linear Prediction
+Mixed Excitation Linear Prediction codec
+US DoD voice
+CELP
+Code Excited Linear Prediction
+generic speech coding family
+speech coding family
+ACELP
+CELP
+Algebraic CELP
+Gseries voice codecs
+RPELTP
+RPELT
+Regular Pulse Excitation
+Regular Pulse Excitation with Longterm Prediction
+GSM early codec
+VSELP
+Vector Sum Excited Linear Prediction
+GSMIS54 codec
+IS54
+GSM
+QCELP
+Qualcomm CELP
+CDMA voice codec
+CDMA
+voice codec
+EVRC
+Enhanced Variable Rate Codec
+Enhanced Variable Rate
+CDMA voice
+CDMA
+SMV
+Selectable Mode Vocoder
+OMA PushtoTalk over Cellular
+PoC
+IMSbased voice service
+CSFB
+CircuitSwitched Fallback for voice in LTE
+CircuitSwitched Fallback
+voice in LTE
+SRVCC
+Single Radio Voice Call Continuity
+LTE to 3G voice
+LTE to 3G voice handover
+IMSMGW
+LTE voice
+3G voice
+IMS Media Gateway
+voice control
+voice control protocol
+IMS Media Gateway voice control protocol
+SIPI
+SIP with encapsulated ISUP
+voice interworking
+SIP with encapsulated ISUP for voice interworking
+SIPT
+SIP for Telephony interworking
+Telephony
+Telephony interworking
+SIP for Telephony
+CAMEL
+Customized Applications for Mobile
+Mobile voice
+Mobile voice services
+Mobile voice services in GSM UMTS
+Customized Applications for Mobile voice services in GSM UMTS
+INAP
+Intelligent Network Application Part for voice services
+MAP voice call control procedures
+GSM UMTS MAP
+voicerelated
+voicerelated parts
+GSM MAP
+MAP
+UMTS MAP
+CAP
+CAMEL Application Part
+GSM voice services
+UMTS voice services
+GSM UMTS voice services
+H323 Annex E
+QoS for voice
+Asterisk IAX trunking
+voice interconnect
+Avaya H248 extensions
+H248 extensions
+Avaya
+voice control
+Nortel UNIStim
+voice terminal
+voice terminal protocol
+UNIStim
+Nortel
+Ericsson MD110 signaling
+PBX voice control
+PBX
+MD110
+MD110 signaling
+Siemens CorNet
+CorNet
+PBX voice
+PBX voice protocol
+NEC Proprietary VoIP
+NEC Proprietary VoIP signaling
+voice phones
+VoIP signaling
+Mitel MiNet
+voice protocol for Mitel phones
+Mitel phones
+Unify HiPath CorNetIP
+HiPath CorNetIP
+voice PBX signaling
+DECT GAP
+Digital Enhanced Cordless Telecommunications
+voice handsets
+handsets
+handsets standard
+voice handsets standard
+audio
+MOS
+Mean Opinion Score
+subjective call quality
+call quality
+RFactor
+EModel
+ITUT G107
+G107
+objective voice quality score
+voice quality score
+voice quality
+PESQ
+Perceptual Evaluation of Speech Quality
+Speech Quality
+automated speech quality
+speech quality metric
+automated speech quality metric
+POLQA
+Perceptual Objective Listening Quality Analysis
+Perceptual Objective Listening Quality
+Listening Quality
+Listening Quality Analysis
+advanced speech quality
+speech quality
+Call Setup Success Rate
+CSSR
+attempted calls
+calls successfully established
+established calls
+attempted calls successfully established
+call setup
+call setups
+CST
+Call Setup Time
+time to establish call
+establish call
+Call Drop Rate
+CDR
+calls unintentionally disconnected
+calls disconnected
+Handover Success Rate
+voice calls handed over successfully
+successful voice calls
+voice calls
+voice calls handed over
+call drops
+call setup failures
+Jitter
+variation in packet delay
+IP voice
+lost RTP voice packets
+RTP voice packets
+RTP voice
+lost voice packets
+Echo Return Loss
+call time
+ERL
+echo level during voice calls
+echo level
+Speech Delay
+MouthtoEar delay
+Oneway delay
+total latency
+Codec Efficiency
+kbps per call
+mbps per call
+bandwidth per voice call
+bandwidth per call
+VoLTE Accessibility
+successful VoLTE call attempts
+successful call attempts
+VoLTE call attempts
+VoLTE attempts
+VoLTE Retainability
+VoLTE calls not dropped
+VoLTE calls dropped
+calls dropped
+VoNR
+VoNR Success Rate
+VoNR Success Rate
+5G voice over NR
+5G voice
+voice over NR
+speech recognition
+voice bands
