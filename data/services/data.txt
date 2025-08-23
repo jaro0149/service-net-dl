@@ -1,0 +1,403 @@
+Classic Data Networking
+Data Networking
+OSI Layers 2 4
+IP
+Internet Protocol
+IPv4
+IPv6
+Internet Protocol v6
+Internet Protocol v4
+ICMP
+Internet Control Message Protocol
+ARP
+Address Resolution Protocol
+RARP
+Reverse ARP
+NDP
+Neighbor Discovery Protocol
+IPv6
+DHCP
+Dynamic Host Configuration Protocol
+BOOTP
+Bootstrap Protocol
+PPP
+Point to Point Protocol
+SLIP
+Serial Line IP
+Serial Line
+LCP
+PPP Link Control Protocol
+Link Control Protocol
+IPCP
+PPP IP Control Protocol
+IP Control Protocol
+MPLS
+Multiprotocol Label Switching
+RSVP
+Resource Reservation Protocol
+data QoS
+WoS
+L2TP
+Layer 2 Tunneling Protocol
+Tunneling Protocol
+Tunelling
+Layer 3 Tunneling
+GRE
+Generic Routing Encapsulation
+Routing Encapsulation
+Encapsulation
+Decapsulation
+IP in IP
+Tunneling protocol
+6to4
+IPv6 tunneling over IPv4
+IPv6 tunneling
+Teredo
+IPv6 tunneling over NAT
+NAT
+IS IS
+Intermediate System to Intermediate System routing
+Intermediate System
+routing
+Routing Protocols
+Data Only
+Data
+RIP
+Routing Information Protocol
+OSPF
+Open Shortest Path First
+Shortest Path
+BGP
+Border Gateway Protocol
+Border Gateway
+Gateway Protocol
+EIGRP
+Cisco proprietary routing
+RPL
+IPv6 routing
+IPv6 routing for low power networks
+low power networks
+Babel routing protocol
+Babel routing
+DSR
+Dynamic Source Routing
+Source Routing
+ad hoc networks
+networks
+AODV
+Ad hoc On demand Distance Vector
+Distance Vector Routing
+OLSR
+Optimized Link State Routing
+Link State Routing
+ad hoc
+ZRP
+Zone Routing Protocol
+Zone Routing
+Transport Protocols
+Data Flow
+TCP
+Transmission Control Protocol
+Transmission Control
+UDP
+User Datagram Protocol
+primarily data foundation
+DCCP
+Datagram Congestion Control Protocol
+Congestion Protocol
+Datagram
+SCTP
+Stream Control Transmission Protocol
+QUIC
+Quick UDP Internet Connections
+UDP Internet Connections
+Internet Connections
+MPTCP
+Multipath TCP
+IL
+Plan 9 data transport protocol
+data transport protocol
+RUDP
+Reliable UDP
+UDT
+UDP based Data Transfer Protocol
+Data Transfer Protocol
+TFRC
+TCP Friendly Rate Control
+Rate Control
+TCP Rate Control
+Application Protocols
+Applications
+Data Transfer
+HTTP 11
+Hypertext Transfer Protocol
+Hypertext
+HTTP 2
+HTTP 3
+QUIC based
+HTTPS
+HTTP Secure
+FTP
+File Transfer Protocol
+File Transfer
+FTPS
+FTP Secure
+SFTP
+SSH File Transfer Protocol
+SSH
+TFTP
+Trivial File Transfer Protocol
+SCP
+Secure Copy Protocol
+WebDAV
+Distributed Authoring over HTTP
+Authoring over HTTP
+Email Messaging
+Email
+Data Transport
+SMTP
+Simple Mail Transfer Protocol
+Mail Transfer Protocol
+POP3
+Post Office Protocol v3
+IMAP
+Internet Message Access Protocol
+LMTP
+Local Mail Transfer Protocol
+MAPI
+Messaging Application Programming Interface
+Application Programming Interface
+NNTP
+Network News Transfer Protocol
+News Transfer Protocol
+XMPP
+Extensible Messaging and Presence Protocol
+Messaging and Presence Protocol
+data chat
+MQTT
+Message Queuing Telemetry Transport
+Message Queuing
+Telemetry Transport
+IoT data
+IoT
+AMQP
+Advanced Message Queuing Protocol
+Queuing Protocol
+STOMP
+Streaming Text Oriented Messaging Protocol
+Security Protocols
+Data Protection
+TLS
+Transport Layer Security
+SSL
+Secure Sockets Layer
+legacy
+IPsec
+IP Security Protocol suite
+IP Security
+IKE
+Internet Key Exchange
+part of IPsec
+ESP
+Encapsulating Security Payload
+Security Payload
+AH
+Authentication Header
+DTLS
+Datagram TLS
+secure data transport
+Kerberos
+authentication protocol
+RADIUS
+Remote Authentication Dial In User Service
+Dial In User Service
+Remote Authentication
+TACACS plus
+Authentication for data networks
+Data Access Directory Protocols
+Directory Protocols
+LDAP
+Lightweight Directory Access Protocol
+NIS
+Network Information Service
+Network Information
+NTP
+Network Time Protocol
+Time Protocol
+synchronization as data service
+data service
+SNTP
+Simple NTP
+DNS
+Domain Name System
+DNSSEC
+Secure DNS
+mDNS
+Multicast DNS
+DoT
+DNS over TLS
+DoH
+DNS over HTTPS
+DoQ
+DNS over QUIC
+File Sharing Data Services
+File Sharing
+NFS
+Network File System
+File System
+SMB
+Server Message Block
+Server Message
+Message Block
+CIFS
+AFP
+Apple Filing Protocol
+WebRTC Data Channels
+Data Channels
+P2P data exchange
+data exchange
+BitTorrent
+Torrent
+peer to peer data sharing
+peer to peer
+data sharing
+Magnet URI scheme
+data P2P
+P2P
+Gnutella
+P2P data protocol
+data protocol
+eDonkey
+eMule
+P2P file transfer
+file transfer
+IPFS
+InterPlanetary File System
+File System
+decentralized data
+Rsync protocol
+Rsync
+efficient data synchronization
+data synchronization
+Wireless Mobile Data Protocols
+Mobile Data
+GPRS
+General Packet Radio Service
+Packet Radio Service
+data only
+EDGE
+Enhanced Data Rates for GSM Evolution
+Enhanced Data Rates
+packet data
+EGPRS
+Enhanced GPRS
+UMTS PS Domain
+packet switched data service
+packet switched data
+HSPA
+High Speed Packet Access
+Packet Access
+data focus
+LTE PDN Connectivity
+PDN Connectivity
+data bearer setup
+data bearer
+5G NR Data Bearers
+Data Bearers
+5QI profiles for data
+data profiles
+WiFi
+IEEE 80211 MAC PHY for data
+IEEE 80211
+MAC PHY for data
+MAC PHY
+WiMAX
+IEEE 80216 broadband wireless data
+IEEE 80216
+broadband wireless data
+wireless data
+Ethernet
+IEEE 8023
+IEEE 8023 wired LAN data protocol
+wired LAN
+LAN data protocol
+LAN
+Throughput
+DL UL Mbps
+average user data rate
+data rate
+user data rate
+Peak Data Rate
+maximum achievable rate
+achievable rate
+Latency
+Round Trip Time
+RTT
+ms delay for IP packets
+delay for IP packets
+IP packets delay
+Packet Loss
+Packet Count
+Packets
+Total Packets
+dropped IP packets
+dropped packets
+Jitter
+variation in inter packet delay
+inter packet delay
+delay variation
+TCP Retransmission Rate
+Retransmission Rate
+retransmitted TCP packets
+retransmitted packets
+Web Page Load Time
+Load Time
+time to load web content
+time to load
+web content
+Application Response Time
+time for app transactions
+app transactions
+Bearer Setup Success Rate
+Bearer Setup Failure Rate
+Bearer Setup
+BSSR
+successful data bearer activations
+data bearer activations
+data activations
+failed activations
+successful activations
+Session Drop Rate
+Sessions Established
+Sessions rate
+SDR
+dropped data sessions
+dropped sessions
+Handover Success Rate
+Handover Rate
+Data
+successful data handovers
+Cell Radio Resource Utilization
+Radio Resource Utilization
+Radio Utilization
+Cell Radio
+bandwidth usage efficiency
+usage efficiency
+5QI QoS Flow Performance
+QoS Flow Performance
+Flow Performance
+per QoS class latency throughput
+latency throughput
+throughput
+User Plane Latency
+User Latency
+User Plane
+network transport delay
+transport delay
+Coverage
+Data service availability
+Data service
+HTTP FTP Download Success Rate
+Download Success Rate
+data QoE metric
+data metric

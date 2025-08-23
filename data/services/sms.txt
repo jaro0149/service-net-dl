@@ -1,0 +1,347 @@
+SMPP
+Short Message PeertoPeer Protocol
+Short Message
+SMS
+SMPP v33
+legacy SMS interface
+SMS interface
+SMPP v34
+SMPP v50
+CIMD
+CIMD enhanced
+Computer Interface to Message Distribution
+Message Distribution
+Nokia CIMD2
+CIMD2
+enhanced CIMD
+UCP
+EMI
+Nokia UCP
+Universal Computer Protocol
+External Machine Interface
+SMSC access
+OIS
+Open Interface Specification
+SMSCs
+OMA RP
+Relay Protocol
+SMS transport layer
+OMA CP
+Connection Protocol
+SMS control layer
+SMS control
+TPDU
+SMS Transfer Protocol Data Unit
+SMS Transfer
+SMS PDU
+RPDU
+Relay Protocol Data Unit
+Relay Protocol DU
+CPDU
+Connection Protocol Data Unit
+Connection Protocol DU
+SMS SUBMIT
+from MS to SMSC
+SMS DELIVER
+from SMSC to MS
+SMS STATUS REPORT
+delivery report
+SMS COMMAND
+control messages
+SMS DELIVER REPORT
+SMS delivery
+acknowledgement
+TP MTI
+Message Type Indicator
+SMS header field
+SMS header
+MAP
+Mobile Application Part
+SMS Related
+MAP MO ForwardSM
+mobileoriginated SMS
+MAP MT ForwardSM
+mobileterminated SMS
+MAP ReportSMDeliveryStatus
+MAP AlertServiceCentre
+MAP InformServiceCentre
+MAP SendRoutingInfoForSM
+MAP ReadyForSM
+MAP NoteSubscriberPresent
+MAP AlertSC
+Alert Short Message Centre
+Message Centre
+Short Message Centre
+SMS Centre
+Alert Message
+MAP ForwardShortMessage
+MAP ShortMessageGateway
+MAP UpdateLocationForSMS
+MAP ProvideSubscriberInfo
+MAP
+Forward message
+Forward short message
+Forward SMS
+MAP Subcriber
+SMSspecific use
+MAP SubscriberDataModified
+SMSrelated triggers
+MAP SubscriberInformationEnquiry
+SMS over SGs
+LTE fallback for SMS via SGs interface
+LTE fallback for SMS
+SGs interface
+SMS over IMS
+SMS carried over IP in LTE 5G
+SMS carried over IP
+SMS in LTE 5G
+SMS over NAS
+NonAccess Stratum signaling in LTE
+SMS over LTE CSFB
+Circuit Switched Fallback SMS
+Fallback SMS
+SMS Notification
+SMS over VoLTE IMS RP DATA
+SMS over VoLTE
+IMS RP DATA
+IMS encapsulation of SMS
+IMS SIP MESSAGE method
+MESSAGE method
+SIP MESSAGE
+SMS interworking
+SMS routing
+SMSoIP
+SMS over IP in IMS
+SMS over 5G NAS
+SMS over SBA
+Service Based Architecture in 5G
+Service Based Architecture
+SMSF
+SMS Function in 5G core network
+SMS Function
+SMS Function in 5G
+SMS Function in core
+CBS
+Cell Broadcast Service
+2G 3G broadcast SMS
+3G broadcast SMS
+broadcast SMS
+2G broadcast SMS
+SMS CB
+Cell Broadcast Message
+ETWS
+Earthquake and Tsunami Warning SMS system
+Warning SMS system
+Warning SMS
+CMAS
+Commercial Mobile Alert System
+Alert System
+SMSbased alerts
+WAP Push over SMS
+OTA provisioning via SMS
+provisioning via SMS
+SIM Toolkit commands
+SIM Toolkit
+Binary SMS
+Concatenated SMS
+long message segmentation
+message segmentation
+Flash SMS
+class 0 messages
+Silent SMS
+stealth signaling for presence
+stealth signaling
+CAMEL
+Customized Applications for Mobile
+CAP SendShortMessage
+CAMEL Application Part
+CAP ProcessUnstructuredSS Request
+USSD SMS interworking
+SMS interworking
+USSD SMS
+CAP FurnishChargingInformation
+SMS specific charging
+SMS charging
+CAMEL Phase 3 SMS control
+CAMEL Phase 4 SMS control
+SMS control
+CAMEL Phase
+OMAP
+Operations MAP
+SMS testing
+INAP SMS triggers
+SMS triggers
+Intelligent Network Application Part
+ANSI IS41
+SMS DeliveryPointToPoint
+DPTP
+ANSI IS41 SMS TransportRelay
+ANSI IS41 SMS NotificationRequest
+ANSI IS41 SMS DeliveryRequest
+ANSI IS41 SMS DeliveryAck
+ANSI IS41 SMS DeliveryForward
+SMS DeliveryAck
+SMS DeliveryForward
+ANSI41 SMS Operations Set
+SMS Operations Set
+CDMA SMS BearerData encoding
+CDMA SMS TeleServiceId
+CDMA SMS ServiceCategory
+CDMA SMS Deliver
+SMS Delivery
+CDMA SMS
+CDMA SMS Submit
+SMS Submit
+CDMA SMS Acknowledge
+SMS Acknowledgement
+Ericsson SMPP extensions
+Huawei SMPP extensions
+Siemens EMI extensions
+Logica UCP enhancements
+Vodafone proprietary SMSC interface
+SMSC interface
+ATT SMS Gateway API
+SMS Gateway
+SMS Gateway API
+legacy SS7based
+SS7based
+Verizon SMS protocol extensions
+Verizon SMS
+SMS protocol
+Sprint PCS SMS protocol
+PCS SMS protocol
+Kannel SMS gateway protocol
+SMS gateway protocol
+MM7
+SOAP XML interface for SMS
+XML interface for SMS
+MM4
+SMTP interface for SMS
+interface for SMS
+MM3
+Email to SMS interface
+Parlay X SMS API
+X SMS API
+OneAPI SMS
+GSMA standard API
+RESTful SMS API
+RESTful SMS
+SMS API
+OMA standardization
+GSMA SMS Hub Interworking standard
+SMS Hub
+SMSSec
+SMS Security
+3GPP security for SMS over IP
+3GPP security for SMS
+SMS over IP
+MAPsec for SMS
+MAP layer security
+MAP layer
+TCAPsec for SMS transport
+TCAPsec for SMS
+SMS transport
+SMS firewall standards
+SMS firewall
+GSMA IR71
+SMS spam filtering rulesets
+SMS spam
+spam filtering
+SMS rulesets
+GSMA
+SMS Home Routing
+GSMA IR65
+SMS Interworking Guidelines
+GSMA IR70
+SMS Steering of Roaming
+SMS Steering
+SoR
+GSMA IR73
+SMS over Diameter
+interworking for LTE
+SMS Interworking Function
+SMS Function
+IWF in core network
+IWF in core
+GSM SMS
+UMTS SMS
+LTE SMS
+5G SMS
+GSM UMTS LTE 5G SMS
+SMPP gateways
+SMS Delivery Success Rate
+SMS Delivery Failure Rate
+Delivery Success Rate
+Delivery Failed Rate
+Delivery Failure Rate
+SMS Success Rate
+SMS Failed Rate
+SMS Failure Rate
+DSR
+percent of SMS delivered successfully
+SMS delivered successfully
+SMS delivered
+percent of SMS delivered with error
+SMS delivered with error
+failed to deliver SMS
+SMS failures
+SMS Delivery Latency
+SMS Latency
+DLT
+average delay from submission to delivery
+delay from submission to delivery
+SMS Submission Success Rate
+SMS Submission
+SMS Submission Failure Rate
+SSR
+percent of SMS accepted by SMSC
+SMS accepted by SMSC
+SMS accepted
+SMS denied
+SMS Failure Rate
+SMS Failure
+percent of SMS that fail to deliver
+MS that fail to deliver
+fail to deliver
+SMS Interworking Success Rate
+success rate across roaming interconnect
+success rate across roaming
+success rate across interconnect
+SMS MO Success Rate
+SMS MO
+mobile originated SMS success rate
+mobile SMS success rate
+SMS MT Success Rate
+SMS MT
+mobile terminated SMS success rate
+terminated SMS success rate
+SMS Acknowledgement Time
+SMS Acknowledgement
+SMS Ack rate
+latency for delivery receipt
+delivery receipt
+latency for deliver
+Silent SMS Delivery Ratio
+SMS Delivery Ratio
+Silent SMS
+Concatenated SMS Delivery Success
+SMS Delivery Success
+Concatenated SMS
+percent of multipart SMS delivered fully
+multipart SMS delivered fully
+SMPP Throughput
+msg per sec
+messages per second
+messages
+total messages
+performance of SMS gateways
+SMS gateways performance
+SMS Spam Detection Rate
+spam Detection Rate
+unwanted SMS blocked
+SMS blocked
+Emergency Alert SMS Reachability
+SMS Reachability
+Alert SMS Reachability
+users receiving broadcast alerts
+receiving broadcast alerts

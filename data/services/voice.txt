@@ -81,6 +81,8 @@ Node B Application Part
 UMTS voice control
 VoNR IMS SIP
 5G voice
+4G voice
+GSM voice
 CAS
 Channel Associated Signaling
 voice trunks
@@ -110,16 +112,21 @@ H450
 Supplementary services in H323 voice
 H235
 Security for H323 voice
+H323 voice
 H341
 H323 voice system management
 H332
 Voice conferencing extensions in H323
+Voice conferencing
+extensions in H323
+secured voice
 H320
 ISDNbased voice conferencing
 H321
 Voice over ATM
 H322
 Voice over guaranteed QoS LANs
+Voice over LANs
 H324M
 voice support
 mobile circuitswitched multimedia
@@ -145,6 +152,7 @@ G729A
 optimized G729 for voice
 G729B
 silence suppression
+voice suppression
 G7291
 wideband scalable extension
 G727
@@ -193,6 +201,7 @@ Selectable Mode Vocoder
 OMA PushtoTalk over Cellular
 PoC
 IMSbased voice service
+voice service
 CSFB
 CircuitSwitched Fallback for voice in LTE
 CircuitSwitched Fallback
@@ -288,6 +297,8 @@ objective voice quality score
 voice quality score
 voice quality
 PESQ
+music transport
+music
 Perceptual Evaluation of Speech Quality
 Speech Quality
 automated speech quality
@@ -322,6 +333,7 @@ successful voice calls
 voice calls
 voice calls handed over
 call drops
+call drop
 call setup failures
 Jitter
 variation in packet delay
@@ -345,6 +357,12 @@ mbps per call
 bandwidth per voice call
 bandwidth per call
 VoLTE Accessibility
+mp3
+ac3
+ac2
+mp2
+aac
+flac
 successful VoLTE call attempts
 successful call attempts
 VoLTE call attempts
@@ -360,4 +378,5 @@ VoNR Success Rate
 5G voice
 voice over NR
 speech recognition
+voice band
 voice bands
