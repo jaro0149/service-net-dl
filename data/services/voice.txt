@@ -1,81 +1,78 @@
 SS7
-Signaling System No 7
+Signaling System No. 7
 ISUP
 ISDN User Part
-Q931
-ISDN Dchannel signaling
+Q.931
+ISDN D-channel signaling
 R2 Signaling
 CAS R2
 PRI
 Primary Rate Interface signaling
-H225
-H323 call signaling
-H245
-H323 control protocol
+H.225
+H.323 call signaling
+H.245
+H.323 control protocol
 MGCP
 Media Gateway Control Protocol
-MEGACO
-H248
+MEGACO/H.248
 SIP
 Session Initiation Protocol
 voice deployments
 SDP
 voice session setup
 RTP
-Realtime Transport Protocol
+Real-time Transport Protocol
 voice payloads
 RTCP
 RTP Control Protocol
 voice streams
-T38
+T.38
 Fax over IP
 telephony environment
 SRTP
 Secure RTP
 voice
-G711
-PCMU
-PCMA
-G722
-G7231
-G726
-G728
-G729
-GSMFR
+G.711
+PCM-U
+PCM-A
+G.722
+G.723.1
+G.726
+G.728
+G.729
+GSM-FR
 GSM Full Rate
-GSMHR
+GSM-HR
 GSM Half Rate
-GSMEFR
+GSM-EFR
 GSM Enhanced Full Rate
-AMRNB
-Adaptive MultiRate Narrowband
-AMRWB
-Adaptive MultiRate Wideband
+AMR-NB
+Adaptive Multi-Rate Narrowband
+AMR-WB
+Adaptive Multi-Rate Wideband
 EVS
 Enhanced Voice Services
-VoLTE 5G
+VoLTE/5G
 iLBC
 Internet Low Bitrate Codec
 SILK
-VoIP
-Skype
+VoIP/Skype
 Opus
 in voice mode
 Speex
-VoLTE SIP
-IMS signaling for voice
+VoLTE SIP/IMS signaling for voice
 IMS
 IP Multimedia Subsystem
 RTP AMR in VoLTE
-EVS in VoLTE VoNR
-EVS in VoLT
+EVS in VoLTE/VoNR
+EVS in VoLTE
 EVS in VoNR
 TRAU frames
 GSM voice transport
-A interface
+A-interface
 GSM voice signaling
-IuCS
-UMTS CircuitSwitched voice
+Iu-CS
+UMTS Circuit-Switched voice
 NBAP
 Node B Application Part
 UMTS voice control
@@ -87,82 +84,81 @@ CAS
 Channel Associated Signaling
 voice trunks
 MF R2
-MultiFrequency R2 signaling
+Multi-Frequency R2 signaling
 DTMF
-Dualtone multifrequency signaling
-inband for voice calls
+Dual-tone multi-frequency signaling
+in-band for voice calls
 QSIG
 PBX signaling for voice
-H323
+H.323
 umbrella for IP voice systems
 Skinny Client Control Protocol
 SCCP
 Cisco VoIP phones
-IAX
-IAX2
-InterAsterisk eXchange protocol
+IAX/IAX2
+Inter-Asterisk eXchange protocol
 VoIP voice
-V152
-Voice over IP for modem passthrough
-Voice over IP for fax passthrough
-H324
-Voice over circuitswitched mobile networks
-3G video voice calls
-H450
-Supplementary services in H323 voice
-H235
-Security for H323 voice
-H323 voice
-H341
-H323 voice system management
-H332
-Voice conferencing extensions in H323
+V.152
+Voice over IP for modem pass-through
+Voice over IP for fax pass-through
+H.324
+Voice over circuit-switched mobile networks
+3G video/voice calls
+H.450
+Supplementary services in H.323 voice
+H.235
+Security for H.323 voice
+H.323 voice
+H.341
+H.323 voice system management
+H.332
+Voice conferencing extensions in H.323
 Voice conferencing
-extensions in H323
+extensions in H.323
 secured voice
-H320
-ISDNbased voice conferencing
-H321
+H.320
+ISDN-based voice conferencing
+H.321
 Voice over ATM
-H322
+H.322
 Voice over guaranteed QoS LANs
 Voice over LANs
-H324M
+H.324M
 voice support
-mobile circuitswitched multimedia
-H460
-NAT traversal for H323 voice
-H281
-Farend camera control in voice video calls
-G7111
-wideband extension of G711
-G718
-wideband lowcomplexity voice codec
-G719
-fullband audio codec
-G7221
+mobile circuit-switched multimedia
+H.460
+NAT traversal for H.323 voice
+H.281
+Far-end camera control in voice/video calls
+G.711.1
+wideband extension of G.711
+G.718
+wideband low-complexity voice codec
+G.719
+full-band audio codec
+G.722.1
 wideband codec
 Siren
-G7222
-AMRWB standardization
-G723
+G.722.2
+AMR-WB standardization
+G.723
 ADPCM
 ADPCM variant for voice
-G729A
-optimized G729 for voice
-G729B
+G.729A
+optimized G.729 for voice
+G.729B
 silence suppression
 voice suppression
-G7291
+G.729.1
 wideband scalable extension
-G727
+G.727
 embedded ADPCM for voice
-LPC10
-lowbitrate voice codec
+LPC-10
+low-bitrate voice codec
 Linear Predictive Coding
 LPCNet
-modern LPCbased neural codec
-modern LPCbased neural codec for speech
+modern LPC-based neural codec
+modern LPC-based neural codec for speech
 speech
 MELP
 Mixed Excitation Linear Prediction
@@ -172,20 +168,17 @@ CELP
 Code Excited Linear Prediction
 generic speech coding family
 speech coding family
-ACELP
-CELP
+A-CELP/CELP
 Algebraic CELP
-Gseries voice codecs
-RPELTP
-RPELT
+G-series voice codecs
+RPE-LTP/RPE-LT
 Regular Pulse Excitation
-Regular Pulse Excitation with Longterm Prediction
+Regular Pulse Excitation with Long-term Prediction
 GSM early codec
 VSELP
 Vector Sum Excited Linear Prediction
-GSMIS54 codec
-IS54
-GSM
+GSM-IS-54 codec
+IS-54/GSM
 QCELP
 Qualcomm CELP
 CDMA voice codec
@@ -194,34 +187,32 @@ voice codec
 EVRC
 Enhanced Variable Rate Codec
 Enhanced Variable Rate
-CDMA voice
-CDMA
+CDMA voice/CDMA
 SMV
 Selectable Mode Vocoder
-OMA PushtoTalk over Cellular
+OMA Push-to-Talk over Cellular
 PoC
-IMSbased voice service
+IMS-based voice service
 voice service
 CSFB
-CircuitSwitched Fallback for voice in LTE
-CircuitSwitched Fallback
+Circuit-Switched Fallback for voice in LTE
+Circuit-Switched Fallback
 voice in LTE
 SRVCC
 Single Radio Voice Call Continuity
 LTE to 3G voice
 LTE to 3G voice handover
-IMSMGW
-LTE voice
-3G voice
+IMS-MGW
+LTE voice/3G voice
 IMS Media Gateway
 voice control
 voice control protocol
 IMS Media Gateway voice control protocol
-SIPI
+SIP-I
 SIP with encapsulated ISUP
 voice interworking
 SIP with encapsulated ISUP for voice interworking
-SIPT
+SIP-T
 SIP for Telephony interworking
 Telephony
 Telephony interworking
@@ -230,42 +221,36 @@ CAMEL
 Customized Applications for Mobile
 Mobile voice
 Mobile voice services
-Mobile voice services in GSM UMTS
-Customized Applications for Mobile voice services in GSM UMTS
+Mobile voice services in GSM/UMTS
+Customized Applications for Mobile voice services in GSM/UMTS
 INAP
 Intelligent Network Application Part for voice services
 MAP voice call control procedures
-GSM UMTS MAP
-voicerelated
-voicerelated parts
-GSM MAP
-MAP
-UMTS MAP
+GSM/UMTS MAP
+voice-related
+voice-related parts
+GSM MAP/MAP/UMTS MAP
 CAP
 CAMEL Application Part
 GSM voice services
 UMTS voice services
-GSM UMTS voice services
-H323 Annex E
+GSM/UMTS voice services
+H.323 Annex E
 QoS for voice
 Asterisk IAX trunking
 voice interconnect
-Avaya H248 extensions
-H248 extensions
+Avaya H.248 extensions
+H.248 extensions
 Avaya
 voice control
 Nortel UNIStim
 voice terminal
 voice terminal protocol
-UNIStim
-Nortel
+UNIStim/Nortel
 Ericsson MD110 signaling
 PBX voice control
-PBX
-MD110
-MD110 signaling
-Siemens CorNet
-CorNet
+PBX/MD110/MD110 signaling
+Siemens CorNet/CorNet
 PBX voice
 PBX voice protocol
 NEC Proprietary VoIP
@@ -275,13 +260,11 @@ VoIP signaling
 Mitel MiNet
 voice protocol for Mitel phones
 Mitel phones
-Unify HiPath CorNetIP
-HiPath CorNetIP
+Unify HiPath CorNet-IP/HiPath CorNet-IP
 voice PBX signaling
 DECT GAP
 Digital Enhanced Cordless Telecommunications
-voice handsets
-handsets
+voice handsets/handsets
 handsets standard
 voice handsets standard
 audio
@@ -289,16 +272,14 @@ MOS
 Mean Opinion Score
 subjective call quality
 call quality
-RFactor
-EModel
-ITUT G107
-G107
+R-Factor
+E-Model
+ITU-T G.107/G.107
 objective voice quality score
 voice quality score
 voice quality
 PESQ
-music transport
-music
+music transport/music
 Perceptual Evaluation of Speech Quality
 Speech Quality
 automated speech quality
@@ -348,8 +329,8 @@ ERL
 echo level during voice calls
 echo level
 Speech Delay
-MouthtoEar delay
-Oneway delay
+Mouth-to-Ear delay
+One-way delay
 total latency
 Codec Efficiency
 kbps per call
@@ -357,12 +338,7 @@ mbps per call
 bandwidth per voice call
 bandwidth per call
 VoLTE Accessibility
-mp3
-ac3
-ac2
-mp2
-aac
-flac
+mp3/ac3/ac2/mp2/aac/flac
 successful VoLTE call attempts
 successful call attempts
 VoLTE call attempts

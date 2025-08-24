@@ -1,12 +1,12 @@
 SMPP
-Short Message PeertoPeer Protocol
+Short Message Peer-to-Peer Protocol
 Short Message
 SMS
-SMPP v33
+SMPP v3.3
 legacy SMS interface
 SMS interface
-SMPP v34
-SMPP v50
+SMPP v3.4
+SMPP v5.0
 CIMD
 CIMD enhanced
 Computer Interface to Message Distribution
@@ -23,45 +23,45 @@ SMSC access
 OIS
 Open Interface Specification
 SMSCs
-OMA RP
+OMA-RP
 Relay Protocol
 SMS transport layer
-OMA CP
+OMA-CP
 Connection Protocol
 SMS control layer
 SMS control
-TPDU
+TP-DU
 SMS Transfer Protocol Data Unit
 SMS Transfer
-SMS PDU
-RPDU
+SMS-PDU
+RP-DU
 Relay Protocol Data Unit
 Relay Protocol DU
-CPDU
+CP-DU
 Connection Protocol Data Unit
 Connection Protocol DU
-SMS SUBMIT
+SMS-SUBMIT
 from MS to SMSC
-SMS DELIVER
+SMS-DELIVER
 from SMSC to MS
-SMS STATUS REPORT
+SMS-STATUS-REPORT
 delivery report
-SMS COMMAND
+SMS-COMMAND
 control messages
-SMS DELIVER REPORT
+SMS-DELIVER-REPORT
 SMS delivery
 acknowledgement
-TP MTI
+TP-MTI
 Message Type Indicator
 SMS header field
 SMS header
 MAP
 Mobile Application Part
-SMS Related
-MAP MO ForwardSM
-mobileoriginated SMS
-MAP MT ForwardSM
-mobileterminated SMS
+SMS-Related
+MAP MO-ForwardSM
+mobile-originated SMS
+MAP MT-ForwardSM
+mobile-terminated SMS
 MAP ReportSMDeliveryStatus
 MAP AlertServiceCentre
 MAP InformServiceCentre
@@ -82,35 +82,35 @@ MAP
 Forward message
 Forward short message
 Forward SMS
-MAP Subcriber
-SMSspecific use
+MAP Subscriber
+SMS-specific use
 MAP SubscriberDataModified
-SMSrelated triggers
+SMS-related triggers
 MAP SubscriberInformationEnquiry
 SMS over SGs
 LTE fallback for SMS via SGs interface
 LTE fallback for SMS
 SGs interface
 SMS over IMS
-SMS carried over IP in LTE 5G
+SMS carried over IP in LTE/5G
 SMS carried over IP
-SMS in LTE 5G
+SMS in LTE/5G
 SMS over NAS
-NonAccess Stratum signaling in LTE
+Non-Access Stratum signaling in LTE
 SMS over LTE CSFB
 Circuit Switched Fallback SMS
 Fallback SMS
 SMS Notification
-SMS over VoLTE IMS RP DATA
+SMS over VoLTE IMS RP-DATA
 SMS over VoLTE
-IMS RP DATA
+IMS RP-DATA
 IMS encapsulation of SMS
 IMS SIP MESSAGE method
 MESSAGE method
 SIP MESSAGE
 SMS interworking
 SMS routing
-SMSoIP
+SMS-o-IP
 SMS over IP in IMS
 SMS over 5G NAS
 SMS over SBA
@@ -123,11 +123,11 @@ SMS Function in 5G
 SMS Function in core
 CBS
 Cell Broadcast Service
-2G 3G broadcast SMS
+2G/3G broadcast SMS
 3G broadcast SMS
 broadcast SMS
 2G broadcast SMS
-SMS CB
+SMS-CB
 Cell Broadcast Message
 ETWS
 Earthquake and Tsunami Warning SMS system
@@ -136,7 +136,7 @@ Warning SMS
 CMAS
 Commercial Mobile Alert System
 Alert System
-SMSbased alerts
+SMS-based alerts
 WAP Push over SMS
 OTA provisioning via SMS
 provisioning via SMS
@@ -155,44 +155,44 @@ CAMEL
 Customized Applications for Mobile
 CAP SendShortMessage
 CAMEL Application Part
-CAP ProcessUnstructuredSS Request
-USSD SMS interworking
+CAP ProcessUnstructuredSS-Request
+USSD-SMS interworking
 SMS interworking
-USSD SMS
+USSD-SMS
 CAP FurnishChargingInformation
-SMS specific charging
+SMS-specific charging
 SMS charging
 CAMEL Phase 3 SMS control
 CAMEL Phase 4 SMS control
 SMS control
 CAMEL Phase
-OMAP
+O-MAP
 Operations MAP
 SMS testing
 INAP SMS triggers
 SMS triggers
 Intelligent Network Application Part
-ANSI IS41
+ANSI IS-41
 SMS DeliveryPointToPoint
 DPTP
-ANSI IS41 SMS TransportRelay
-ANSI IS41 SMS NotificationRequest
-ANSI IS41 SMS DeliveryRequest
-ANSI IS41 SMS DeliveryAck
-ANSI IS41 SMS DeliveryForward
+ANSI IS-41 SMS TransportRelay
+ANSI IS-41 SMS NotificationRequest
+ANSI IS-41 SMS DeliveryRequest
+ANSI IS-41 SMS DeliveryAck
+ANSI IS-41 SMS DeliveryForward
 SMS DeliveryAck
 SMS DeliveryForward
-ANSI41 SMS Operations Set
+ANSI-41 SMS Operations Set
 SMS Operations Set
 CDMA SMS BearerData encoding
 CDMA SMS TeleServiceId
 CDMA SMS ServiceCategory
-CDMA SMS Deliver
+CDMA SMS-Deliver
 SMS Delivery
 CDMA SMS
-CDMA SMS Submit
+CDMA SMS-Submit
 SMS Submit
-CDMA SMS Acknowledge
+CDMA SMS-Acknowledge
 SMS Acknowledgement
 Ericsson SMPP extensions
 Huawei SMPP extensions
@@ -200,11 +200,11 @@ Siemens EMI extensions
 Logica UCP enhancements
 Vodafone proprietary SMSC interface
 SMSC interface
-ATT SMS Gateway API
+AT&T SMS Gateway API
 SMS Gateway
 SMS Gateway API
-legacy SS7based
-SS7based
+legacy SS7-based
+SS7-based
 Verizon SMS protocol extensions
 Verizon SMS
 SMS protocol
@@ -213,13 +213,13 @@ PCS SMS protocol
 Kannel SMS gateway protocol
 SMS gateway protocol
 MM7
-SOAP XML interface for SMS
+SOAP/XML interface for SMS
 XML interface for SMS
 MM4
 SMTP interface for SMS
 interface for SMS
 MM3
-Email to SMS interface
+Email-to-SMS interface
 Parlay X SMS API
 X SMS API
 OneAPI SMS
@@ -230,33 +230,33 @@ SMS API
 OMA standardization
 GSMA SMS Hub Interworking standard
 SMS Hub
-SMSSec
+SMS-Sec
 SMS Security
 3GPP security for SMS over IP
 3GPP security for SMS
 SMS over IP
-MAPsec for SMS
+MAP-sec for SMS
 MAP layer security
 MAP layer
-TCAPsec for SMS transport
-TCAPsec for SMS
+TCAP-sec for SMS transport
+TCAP-sec for SMS
 SMS transport
 SMS firewall standards
 SMS firewall
-GSMA IR71
+GSMA IR.71
 SMS spam filtering rulesets
 SMS spam
 spam filtering
 SMS rulesets
 GSMA
 SMS Home Routing
-GSMA IR65
+GSMA IR.65
 SMS Interworking Guidelines
-GSMA IR70
+GSMA IR.70
 SMS Steering of Roaming
 SMS Steering
 SoR
-GSMA IR73
+GSMA IR.73
 SMS over Diameter
 interworking for LTE
 SMS Interworking Function
@@ -267,7 +267,7 @@ GSM SMS
 UMTS SMS
 LTE SMS
 5G SMS
-GSM UMTS LTE 5G SMS
+GSM/UMTS/LTE/5G SMS
 SMPP gateways
 SMS Delivery Success Rate
 SMS Delivery Failure Rate
@@ -278,7 +278,7 @@ SMS Success Rate
 SMS Failed Rate
 SMS Failure Rate
 DSR
-percent of SMS delivered successfully
+% of SMS delivered successfully
 SMS delivered successfully
 SMS delivered
 percent of SMS delivered with error
@@ -294,13 +294,13 @@ SMS Submission Success Rate
 SMS Submission
 SMS Submission Failure Rate
 SSR
-percent of SMS accepted by SMSC
+% of SMS accepted by SMSC
 SMS accepted by SMSC
 SMS accepted
 SMS denied
 SMS Failure Rate
 SMS Failure
-percent of SMS that fail to deliver
+% of SMS that fail to deliver
 MS that fail to deliver
 fail to deliver
 SMS Interworking Success Rate
@@ -308,12 +308,12 @@ success rate across roaming interconnect
 success rate across roaming
 success rate across interconnect
 SMS MO Success Rate
-SMS MO
-mobile originated SMS success rate
+SMS-MO
+mobile-originated SMS success rate
 mobile SMS success rate
 SMS MT Success Rate
-SMS MT
-mobile terminated SMS success rate
+SMS-MT
+mobile-terminated SMS success rate
 terminated SMS success rate
 SMS Acknowledgement Time
 SMS Acknowledgement
@@ -327,10 +327,10 @@ Silent SMS
 Concatenated SMS Delivery Success
 SMS Delivery Success
 Concatenated SMS
-percent of multipart SMS delivered fully
-multipart SMS delivered fully
+% of multi-part SMS delivered fully
+multi-part SMS delivered fully
 SMPP Throughput
-msg per sec
+msg/sec
 messages per second
 messages
 total messages

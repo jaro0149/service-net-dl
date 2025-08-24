@@ -1,6 +1,6 @@
 Classic Data Networking
 Data Networking
-OSI Layers 2 4
+OSI Layers 2-4
 IP
 Internet Protocol
 IPv4
@@ -21,7 +21,7 @@ Dynamic Host Configuration Protocol
 BOOTP
 Bootstrap Protocol
 PPP
-Point to Point Protocol
+Point-to-Point Protocol
 SLIP
 Serial Line IP
 Serial Line
@@ -47,7 +47,7 @@ Generic Routing Encapsulation
 Routing Encapsulation
 Encapsulation
 Decapsulation
-IP in IP
+IP-in-IP
 Tunneling protocol
 6to4
 IPv6 tunneling over IPv4
@@ -55,8 +55,8 @@ IPv6 tunneling
 Teredo
 IPv6 tunneling over NAT
 NAT
-IS IS
-Intermediate System to Intermediate System routing
+IS-IS
+Intermediate System-to-Intermediate System routing
 Intermediate System
 routing
 Routing Protocols
@@ -75,22 +75,22 @@ EIGRP
 Cisco proprietary routing
 RPL
 IPv6 routing
-IPv6 routing for low power networks
-low power networks
+IPv6 routing for low-power networks
+low-power networks
 Babel routing protocol
 Babel routing
 DSR
 Dynamic Source Routing
 Source Routing
-ad hoc networks
+ad-hoc networks
 networks
 AODV
-Ad hoc On demand Distance Vector
+Ad-hoc On-demand Distance Vector
 Distance Vector Routing
 OLSR
 Optimized Link State Routing
 Link State Routing
-ad hoc
+ad-hoc
 ZRP
 Zone Routing Protocol
 Zone Routing
@@ -129,12 +129,12 @@ TCP Rate Control
 Application Protocols
 Applications
 Data Transfer
-HTTP 11
+HTTP/1.1
 Hypertext Transfer Protocol
 Hypertext
-HTTP 2
-HTTP 3
-QUIC based
+HTTP/2
+HTTP/3
+QUIC-based
 HTTPS
 HTTP Secure
 FTP
@@ -152,7 +152,7 @@ Secure Copy Protocol
 WebDAV
 Distributed Authoring over HTTP
 Authoring over HTTP
-Email Messaging
+Email/Messaging
 Email
 Data Transport
 SMTP
@@ -209,12 +209,12 @@ secure data transport
 Kerberos
 authentication protocol
 RADIUS
-Remote Authentication Dial In User Service
-Dial In User Service
+Remote Authentication Dial-In User Service
+Dial-In User Service
 Remote Authentication
-TACACS plus
+TACACS+
 Authentication for data networks
-Data Access Directory Protocols
+Data Access/Directory Protocols
 Directory Protocols
 LDAP
 Lightweight Directory Access Protocol
@@ -240,7 +240,7 @@ DoH
 DNS over HTTPS
 DoQ
 DNS over QUIC
-File Sharing Data Services
+File Sharing/Data Services
 File Sharing
 NFS
 Network File System
@@ -279,12 +279,12 @@ Rsync protocol
 Rsync
 efficient data synchronization
 data synchronization
-Wireless Mobile Data Protocols
+Wireless/Mobile Data Protocols
 Mobile Data
 GPRS
 General Packet Radio Service
 Packet Radio Service
-data only
+data-only
 EDGE
 Enhanced Data Rates for GSM Evolution
 Enhanced Data Rates
@@ -292,10 +292,10 @@ packet data
 EGPRS
 Enhanced GPRS
 UMTS PS Domain
-packet switched data service
-packet switched data
+packet-switched data service
+packet-switched data
 HSPA
-High Speed Packet Access
+High-Speed Packet Access
 Packet Access
 data focus
 LTE PDN Connectivity
@@ -306,24 +306,24 @@ data bearer
 Data Bearers
 5QI profiles for data
 data profiles
-WiFi
-IEEE 80211 MAC PHY for data
-IEEE 80211
-MAC PHY for data
-MAC PHY
+Wi-Fi
+IEEE 802.11 MAC/PHY for data
+IEEE 802.11
+MAC/PHY for data
+MAC/PHY
 WiMAX
 IEEE 80216 broadband wireless data
 IEEE 80216
 broadband wireless data
 wireless data
 Ethernet
-IEEE 8023
-IEEE 8023 wired LAN data protocol
+IEEE 802.3
+IEEE 802.3 wired LAN data protocol
 wired LAN
 LAN data protocol
 LAN
 Throughput
-DL UL Mbps
+DL/UL Mbps
 average user data rate
 data rate
 user data rate
@@ -331,7 +331,7 @@ Peak Data Rate
 maximum achievable rate
 achievable rate
 Latency
-Round Trip Time
+Round-Trip Time
 RTT
 ms delay for IP packets
 delay for IP packets
@@ -343,8 +343,9 @@ Total Packets
 dropped IP packets
 dropped packets
 Jitter
-variation in inter packet delay
-inter packet delay
+TACACS
+variation in inter-packet delay
+inter-packet delay
 delay variation
 TCP Retransmission Rate
 Retransmission Rate
@@ -386,10 +387,10 @@ usage efficiency
 5QI QoS Flow Performance
 QoS Flow Performance
 Flow Performance
-per QoS class latency throughput
-latency throughput
+per-QoS class latency/throughput
+latency/throughput
 throughput
-User Plane Latency
+User-Plane Latency
 User Latency
 User Plane
 network transport delay
@@ -397,7 +398,7 @@ transport delay
 Coverage
 Data service availability
 Data service
-HTTP FTP Download Success Rate
+HTTP/FTP Download Success Rate
 Download Success Rate
 data QoE metric
 data metric

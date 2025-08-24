@@ -1,29 +1,29 @@
 Video Transport Signaling
-H222
-MPEG2 transport stream for video
-MPEG2 transport stream
-MPEG2
-MPEG2 transport
-H223
-Multiplexing for H324 video calls
-Multiplexing for H324
-H324 video calls
+H.222
+MPEG-2 transport stream for video
+MPEG-2 transport stream
+MPEG-2
+MPEG-2 transport
+H.223
+Multiplexing for H.324 video calls
+Multiplexing for H.324
+H.324 video calls
 video calls
 video
-H225
-Call signaling in H323
+H.225
+Call signaling in H.323
 video focus
 H245
 Control protocol for multimedia
 Control protocol
-video in H323
-H323
-H230
+video in H.323
+H.323
+H.230
 Frame synchronous control
 Frame synchronous
 video conferencing
 conferencing
-H231
+H.231
 Multipoint control for video
 control for video
 video control
@@ -40,21 +40,21 @@ key management for video
 H235
 Security for H323 multimedia
 Security for H323
-H323 multimedia
-H323
-H241
+H.323 multimedia
+H.323
+H.241
 Extended video procedures
 video procedures
 Extended video
-H300 terminals
-H300
-H242
+H.300 terminals
+H.300
+H.242
 Communication mode control
 video terminals
-H243
+H.243
 Multipoint video procedures
 Multipoint video
-H244
+H.244
 Additional video communication procedures
 video communication procedures
 video communication
@@ -62,7 +62,7 @@ H246
 Interworking between multimedia
 video systems
 multimedia Interworking
-H281
+H.281
 Far end camera control
 camera control
 Far control
@@ -72,75 +72,75 @@ video conferencing
 Video Coding Standards
 Video Coding
 Video Standards
-ITUT MPEG
+ITU-T MPEG
 MPEG
-H120
+H.120
 First digital video codec standard
 digital video codec
 digital video
 video codec
 video codec standard
-H261
+H.261
 Video codec for ISDN
 ISDN Video
 video conferencing
-H262
-MPEG2 video coding
-MPEG2 video
-MPEG2
-H263
+H.262
+MPEG-2 video coding
+MPEG-2 video
+MPEG-2
+H.263
 Low bitrate video codec
 Low bitrate video
 3G video telephony
 video telephony
 3G video
-H263 plus
-Enhanced H263
-H263v2
+H.263+
+Enhanced H.263
+H.263v2
 Annexes for mobile video
 mobile video
-H264
+H.264
 AVC
 Advanced Video Coding
-H264 SVC
+H.264/SVC
 Scalable Video Coding
 Scalable Video
-H264 MVC
+H.264/MVC
 Multiview Coding
 3D video
-H265
+H.265
 HEVC
 High Efficiency Video Coding
 High Efficiency Video
-H266
+H.266
 VVC
 Versatile Video Coding
 Versatile Video
-H267
+H.267
 Future video standard placeholder
 Future video
 video standard
-MPEG1 Video
-MPEG1
-ISO IEC 11172 2
-MPEG2 Video
-ISO IEC 13818 2
-MPEG4 Part 2
-MPEG4
+MPEG-1 Video
+MPEG-1
+ISO/IEC 11172-2
+MPEG-2 Video
+ISO/IEC 13818-2
+MPEG-4 Part 2
+MPEG-4
 Visual
 advanced video profiles
 video profiles
-MPEG4 Part 10
-AVC equals H264
-MPEG4 BIFS
+MPEG-4 Part 10
+AVC equals H.264
+MPEG-4 BIFS
 Scene description
 interactive video
-MPEG4 ALS
+MPEG-4 ALS
 Video conferencing adaptation layers
 adaptation layers
-MPEG H Part 2
-HEVC equals H265
-MPEG I
+MPEG-H Part 2
+HEVC equals H.265
+MPEG-I
 Immersive video standardization
 video standardization
 VR 360
@@ -161,17 +161,17 @@ YouTube video
 AV1
 AOMedia video codec
 AOMedia video
-next gen web video
+next-gen web video
 web video
 Mobile Cellular Video Protocols
 Cellular Video
 Mobile Video
-3G 324M
-Video telephony over 3G circuit switched
+3G-324M
+Video telephony over 3G circuit-switched
 Video over 3G
-Video over circuit switched
+Video over circuit-switched
 Video over CS
-H324M Annex K
+H.324M Annex K
 Video in UMTS networks
 Video in UMTS
 UMTS Video
@@ -186,7 +186,7 @@ Video over 5G
 NR MMTel video
 MMTel video
 PSS
-Packet switched streaming service
+Packet-switched streaming service
 streaming service
 3GPP
 MBMS
@@ -210,17 +210,17 @@ ER streaming
 Video Streaming Protocols
 Streaming Protocols
 RTSP
-Real Time Streaming Protocol
-Real Time Protocol
+Real-Time Streaming Protocol
+Real-Time Protocol
 RTMP
-Real Time Messaging Protocol
+Real-Time Messaging Protocol
 Flash video
 HDS
 HTTP Dynamic Streaming
 Dynamic Streaming
 HLS
 HTTP Live Streaming
-MPEG DASH
+MPEG-DASH
 Dynamic Adaptive Streaming over HTTP
 Dynamic Adaptive Streaming
 Streaming over HTTP
@@ -241,85 +241,85 @@ Zixi
 Proprietary live video streaming protocol
 live video streaming
 Proprietary video protocol
-Video Conferencing Collaboration
-Conferencing Collaboration
+Video Conferencing/Collaboration
+Conferencing/Collaboration
 Video Collaboration
 television
 TV
-H320
+H.320
 ISDN video conferencing
 ISDN video
-H321
-ATM based video conferencing
+H.321
+ATM-based video conferencing
 ATM conferencing
-H322
+H.322
 LAN with QoS video conferencing
 video QoS
 QoS video conferencing
 LAN video
-H323
-IP based multimedia conferencing
+H.323
+IP-based multimedia conferencing
 strong video support
 IP multimedia
 video support
-H324
-PSTN based video conferencing
+H.324
+PSTN-based video conferencing
 PSTN video
 PSTN video conferencing
-H350
+H.350
 Directory services
 video conferencing
-H460
+H.460
 NAT traversal
-H323 video systems
-H323 video
+H.323 video systems
+H.323 video
 video systems
 BFCP
 Binary Floor Control Protocol
 Floor Control Protocol
 used in video conferencing
 used in video
-T140 with video
-T140 video
-real time text in video calls
+T.140 with video
+T.140 video
+real-time text in video calls
 video calls
-T120
+T.120
 video integration
-IPTV Broadcast Video
+IPTV/Broadcast Video
 IPTV Broadcast
 IPTV Multicast
 IPTV
 IPTV Video
-DVBS
+DVB-S
 Digital Video Broadcasting Satellite
 Video Satellite
-DVB S2
+DVB-S2
 Advanced satellite video
-DVB C
+DVB-C
 Digital Video Broadcasting Cable
 Video Broadcasting Cable
-DVB T
+DVB-T
 Digital Video Broadcasting Terrestrial
 Video Terrestrial
 Broadcasting Terrestrial
-DVB T2
+DVB-T2
 Advanced terrestrial video
-DVB H
+DVB-H
 Handheld DVB video
 DVB video
-DVB IPTV
+DVB-IPTV
 IPTV standard
 ATSC
 Advanced Television Systems Committee
 Advanced Television Systems
 US broadcast
-ATSC 3
-Next gen TV with IP video
-Next gen TV
+ATSC 3.0
+Next-gen TV with IP video
+Next-gen TV
 IP video
-ISDB T
+ISDB-T
 Integrated Services Digital Broadcasting
-ISDB S
+ISDB-S
 Satellite ISDB video
 ISDB video
 DTMB
@@ -344,14 +344,14 @@ Forward Error Correction
 video streams
 RTP Payload
 RTP Payload format
-RTP Payload Format for H261
-RTP Payload Format for H263
-RTP Payload Format for H264
-RTP Payload Format for H265
+RTP Payload Format for H.261
+RTP Payload Format for H.263
+RTP Payload Format for H.264
+RTP Payload Format for H.265
 RTP Payload Format for VP8
 RTP Payload Format for VP9
 RTP Payload Format for AV1
-SCTE 35
+SCTE-35
 Video Ad Insertion signaling
 Video Ad Insertion
 Video Ad
@@ -361,10 +361,10 @@ Video Ad trigger
 SMPTE 2022
 Video over IP standards suite
 Video over IP
-SMPTE 2110
+SMPTE-2110
 Professional video over IP
 Professional video
-ARIB STD B32
+ARIB STD-B32
 Japan video multiplexing standard
 Japan video
 video multiplexing standard
@@ -401,8 +401,8 @@ Adaptive Bitrate Switching Success
 smooth resolution switching
 video resolution
 Video MOS
-V MOS
-ITU T P1201 P1202
+V-MOS
+ITU-T P.1201/P.1202
 subjective video quality metric
 video quality
 SSIM
@@ -414,7 +414,7 @@ Peak Signal to Noise Ratio
 video noise
 video quality metric
 Frame Loss Ratio
-percent of missing frames
+% of missing frames
 missing frames
 Frame Freezing Events
 Frame Freezing
@@ -425,14 +425,14 @@ delay in adaptive bitrate switching
 Video Call Setup Success Rate
 Video Call Setup
 Video Call Setup Failure Rate
-percent of video call attempts succeeded
+% of video call attempts succeeded
 video call attempts
 video call attempts failures
 video call succeeded
 video failures
 Video Call Drop Rate
 Video Drop Rate
-percent of video calls unintentionally dropped
+% of video calls unintentionally dropped
 video calls unintentionally dropped
 video calls dropped
 Video Handover Success Rate
@@ -444,10 +444,10 @@ Concealment Effectiveness
 QoE under loss
 QoE Streaming Index
 QoE Streaming
-ITU T P1203
+ITU-T P.1203
 overall streaming quality index
 streaming quality
 streaming quality index
 End to End Video Latency
 Video Latency
-mouth to eye in conferencing
+mouth-to-eye in conferencing
