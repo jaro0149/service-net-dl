@@ -102,7 +102,7 @@ class ModelTrainer:
         current_loss = 0.0
         for batch in batches:
             batch_loss: Tensor = torch.tensor(0.0)
-            for label_tensor, text_tensor, _, _ in IterableSubset(training_data, batch):
+            for label_tensor, text_tensor in IterableSubset(training_data, batch):
                 output = self.rnn.forward(text_tensor)
                 loss = self.loss_fn(output, label_tensor)
                 batch_loss += loss
@@ -121,7 +121,7 @@ class ModelTrainer:
         self.accuracy_metric.reset()
         self.rnn.eval()
         with torch.no_grad():
-            for label_tensor, text_tensor, _, _ in IterableSubset(testing_data):
+            for label_tensor, text_tensor in IterableSubset(testing_data):
                 output = self.rnn.forward(text_tensor)
                 self.accuracy_metric.update(output, label_tensor)
         return self.accuracy_metric.compute().item()

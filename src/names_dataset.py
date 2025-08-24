@@ -21,47 +21,46 @@ class NamesDataset(Dataset):
         :param data_dir: The path to the directory containing text files. Each text file should
             have a name that represents the label and contain lines of text data.
         """
-        self.data_dir = data_dir
+        text_files = self._get_text_files(data_dir)
+        self._create_labels_from_filenames(text_files)
+        self._create_tensors(text_files)
 
-        self.data: list[str] = []
-        self.data_tensors: list[Tensor] = []
-        self.labels: list[str] = []
-        self.labels_tensors: list[Tensor] = []
-
+    def _create_labels_from_filenames(self, text_files: list[Path]) -> None:
         labels_set = set()
-        text_files = Path(data_dir).glob("*.txt")
         for filename in text_files:
             label = filename.stem
             labels_set.add(label)
+        self.labels_uniq = list(labels_set)
+
+    def _create_tensors(self, text_files: list[Path]) -> None:
+        self.data_tensors: list[Tensor] = []
+        self.labels_tensors: list[Tensor] = []
+        for filename in text_files:
+            label = filename.stem
+            label_idx = self.labels_uniq.index(label)
             with filename.open(encoding="utf-8") as file:
                 lines = file.read().strip().split("\n")
             for name in lines:
-                self.data.append(name)
                 self.data_tensors.append(line_to_tensor(name))
-                self.labels.append(label)
-
-        self.labels_uniq = list(labels_set)
-        for idx in range(len(self.labels)):
-            temp_tensor = tensor([self.labels_uniq.index(self.labels[idx])], dtype=long)
-            self.labels_tensors.append(temp_tensor)
+                self.labels_tensors.append(tensor([label_idx], dtype=long))
 
     def __len__(self) -> int:
         """Calculate and return the number of elements in the data structure.
 
         :return: The number of elements in the data structure.
         """
-        return len(self.data)
+        return len(self.data_tensors)
 
-    def __getitem__(self, idx: int) -> tuple[Tensor, Tensor, str, str]:
+    def __getitem__(self, idx: int) -> tuple[Tensor, Tensor]:
         """Retrieve a specific entry from the dataset using the given index.
 
         :param idx: Index of the dataset entry to retrieve.
-        :return: A tuple containing the label tensor, data tensor, label string,
-            and data string at the specified index.
+        :return: A tuple containing the label tensor and data tensor at the specified index.
         """
-        data_item = self.data[idx]
-        data_label = self.labels[idx]
         data_tensor = self.data_tensors[idx]
         label_tensor = self.labels_tensors[idx]
+        return label_tensor, data_tensor
 
-        return label_tensor, data_tensor, data_label, data_item
+    @staticmethod
+    def _get_text_files(data_dir: str) -> list[Path]:
+        return list(Path(data_dir).glob("*.txt"))

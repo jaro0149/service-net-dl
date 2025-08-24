@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.13"
 resolution-markers = [
     "sys_platform == 'linux' and extra != 'extra-11-packet-mind-cpu' and extra != 'extra-11-packet-mind-cu128' and extra != 'extra-11-packet-mind-rocm63' and extra == 'extra-11-packet-mind-xpu'",

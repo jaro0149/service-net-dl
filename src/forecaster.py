@@ -45,10 +45,10 @@ class Forecaster:
 
         self.rnn.eval()
         with torch.no_grad():
-            for (_, text_tensor, label, _) in IterableSubset(testing_data):
+            for (label_tensor, text_tensor) in IterableSubset(testing_data):
                 output = self.rnn(text_tensor)
                 guess_idx = label_idx_from_output(output)
-                label_idx = self.classes.index(label)
+                label_idx = label_tensor.item()
 
                 all_forecasts.append(guess_idx)
                 all_targets.append(label_idx)
