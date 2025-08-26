@@ -6,7 +6,7 @@ The following command will install a required Python version in the sandbox.
 Python version is defined in the `.python-version` file.
 
 ```bash
-uv install python
+uv python install
 ```
 
 Note: You may install required building tools and system libraries such as `gcc` in order to successfully build
