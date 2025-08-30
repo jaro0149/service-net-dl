@@ -10,26 +10,24 @@ dependencies = [
     "torchmetrics==1.8.1",
     "pydantic==2.11.7",
     "pydantic-settings==2.10.1",
-    "PyQt6==6.9.1"
+    "PyQt6==6.9.1",
+    "nlpaug==1.1.11",
+    "nltk==3.9.1"
 ]
 
 [project.optional-dependencies]
 cpu = [
     "torch~=2.7.0",
-    "torchvision~=0.22.0",
 ]
 cu128 = [
     "torch~=2.7.0",
-    "torchvision~=0.22.0",
 ]
 rocm63 = [
     "torch~=2.7.0",
-    "torchvision~=0.22.0",
     "pytorch-triton-rocm~=3.3.0"
 ]
 xpu = [
     "torch~=2.7.0",
-    "torchvision~=0.22.0",
     "pytorch-triton-xpu~=3.3.0"
 ]
 
@@ -45,12 +43,6 @@ conflicts = [
 
 [tool.uv.sources]
 torch = [
-    { index = "pytorch-cpu", extra = "cpu" },
-    { index = "pytorch-cu128", extra = "cu128" },
-    { index = "pytorch-rocm63", extra = "rocm63" },
-    { index = "pytorch-xpu", extra = "xpu" },
-]
-torchvision = [
     { index = "pytorch-cpu", extra = "cpu" },
     { index = "pytorch-cu128", extra = "cu128" },
     { index = "pytorch-rocm63", extra = "rocm63" },

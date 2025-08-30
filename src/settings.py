@@ -40,3 +40,91 @@ class DatasetSettings(BaseSettings):
 
         env_prefix = "DATASET_"
         case_sensitive = False
+
+
+class CharAugmentationSettings(BaseSettings):
+    """Configuration settings for character-level text augmentation."""
+
+    keyboard_aug_char_p: float = Field(
+        default=0.1,
+        description="Probability of keyboard typos augmentation per character",
+    )
+    ocr_aug_char_p: float = Field(
+        default=0.05,
+        description="Probability of OCR errors augmentation per character",
+    )
+    random_char_aug_p: float = Field(
+        default=0.05,
+        description="Probability of random character substitution per character",
+    )
+    random_char_aug_min: int = Field(
+        default=1,
+        description="Minimum number of characters to augment",
+    )
+    random_char_aug_max: int = Field(
+        default=3,
+        description="Maximum number of characters to augment",
+    )
+
+    class Config:
+        """Configuration class for defining environment settings and options for a particular application."""
+
+        env_prefix = "CHAR_AUG_"
+        case_sensitive = False
+
+
+class WordAugmentationSettings(BaseSettings):
+    """Configuration settings for word-level text augmentation."""
+
+    synonym_aug_p: float = Field(
+        default=0.1,
+        description="Probability of synonym replacement per word",
+    )
+    word_delete_aug_p: float = Field(
+        default=0.05,
+        description="Probability of word deletion",
+    )
+    word_swap_aug_p: float = Field(
+        default=0.05,
+        description="Probability of word swapping",
+    )
+    word_crop_aug_p: float = Field(
+        default=0.05,
+        description="Probability of word cropping",
+    )
+    word_aug_min: int = Field(
+        default=2,
+        description="Minimum number of words to augment",
+    )
+    word_aug_max: int = Field(
+        default=5,
+        description="Maximum number of words to augment",
+    )
+    synonym_aug_src: str = Field(
+        default="wordnet",
+        description="Source for synonym augmentation",
+    )
+
+    class Config:
+        """Configuration class for defining environment settings and options for a particular application."""
+
+        env_prefix = "WORD_AUG_"
+        case_sensitive = False
+
+
+class TextAugmentationSettings(BaseSettings):
+    """Configuration settings for text augmentation parameters."""
+
+    char_augmentation: CharAugmentationSettings = Field(default_factory=CharAugmentationSettings)
+    word_augmentation: WordAugmentationSettings = Field(default_factory=WordAugmentationSettings)
+
+    char_level_probability: float = Field(
+        default=0.5,
+        description="Probability of choosing character-level vs word-level augmentation",
+    )
+
+    class Config:
+        """Configuration class for defining environment settings and options for a particular application."""
+
+        env_prefix = "TEXT_AUG_"
+        case_sensitive = False

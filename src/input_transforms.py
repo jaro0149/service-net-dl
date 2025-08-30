@@ -1,9 +1,12 @@
 import string
+from collections.abc import Callable
 
 import torch
 from torch import Tensor
 
-ALLOWED_CHARS: str = string.ascii_letters + " .,;'" + "_"
+TXT_ENCODING = "utf-8"
+ALLOWED_CHARS: str = string.ascii_lowercase + string.digits + " ./-+%"
+UNKNOWN_CHAR: str = "_"
 N_LETTERS: int = len(ALLOWED_CHARS)
 
 
@@ -33,5 +36,31 @@ def _letter_to_index(letter: str) -> int:
     :return: The index of the character in the `ALLOWED_CHARS` or the index of `_` if the character is not found.
     """
     if letter not in ALLOWED_CHARS:
-        return ALLOWED_CHARS.find("_")
+        return ALLOWED_CHARS.find(UNKNOWN_CHAR)
     return ALLOWED_CHARS.find(letter)
+
+
+def to_lowercase(text: str) -> str:
+    """Transform text to lowercase.
+
+    :param text: Input text to convert
+    :return: Text converted to lowercase
+    """
+    return text.lower()
+
+
+def combine_transforms(*transforms: Callable[[str], str]) -> Callable[[str], str]:
+    """Combine multiple text transforms in a sequence.
+
+    Creates a single transform function that applies all provided transforms
+    in the order they were passed.
+
+    :param transforms: Variable number of transform functions that take a string and return a string
+    :return: A combined transform function
+    """
+    def combined_transform(text: str) -> str:
+        result = text
+        for transform in transforms:
+            result = transform(result)
+        return result
+    return combined_transform
