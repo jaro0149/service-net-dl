@@ -1,5 +1,6 @@
 import io
 import logging
+import random
 import sys
 from collections.abc import Iterator
 
@@ -82,3 +83,11 @@ def log_model_info(
         logger.info("Model summary:\n%s", summary_text)
     finally:
         sys.stdout = old_stdout
+
+
+def set_seed(seed: int) -> None:
+    """Set the seed for random number generation in PyTorch."""
+    random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)

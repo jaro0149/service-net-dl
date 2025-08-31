@@ -11,7 +11,6 @@ from nlpaug.util import Action
 from settings import TextAugmentationSettings
 
 logger = logging.getLogger(__name__)
-secure_random = random.SystemRandom()
 
 
 class TextAugmenter:
@@ -93,17 +92,17 @@ class TextAugmenter:
         """
         try:
             # Randomly choose between character and word level augmentation
-            if secure_random.random() < self.settings.char_level_probability:
+            if random.random() < self.settings.char_level_probability:
                 # Apply character-level augmentation
-                augmenter = secure_random.choice(self.char_augmenters)
+                augmenter = random.choice(self.char_augmenters)
                 return self._decapsulate_result(augmenter.augment(text))
             # Apply word-level augmentation (skip if text is too short)
             if len(text.split()) > 1:
-                augmenter = secure_random.choice(self.word_augmenters)
+                augmenter = random.choice(self.word_augmenters)
                 result = augmenter.augment(text)
                 return self._decapsulate_result(result)
             # For single words, fall back to character augmentation
-            augmenter = secure_random.choice(self.char_augmenters)
+            augmenter = random.choice(self.char_augmenters)
             result = augmenter.augment(text)
             return self._decapsulate_result(result)
         except Exception as e: # noqa: BLE001
