@@ -25,13 +25,15 @@ logger = logging.getLogger(__name__)
 class _TrainingProcess:
 
     def run(self) -> None:
-        set_seed(self.training_settings.seed)
         self._load_settings()
+        set_seed(self.training_settings.seed)
         self._set_device()
         self._create_dataloaders()
         self._create_model()
         self._prepare_training_functions()
         self._train_model()
+        self._plot_results()
+        self._save_model()
 
     def _load_settings(self) -> None:
         self.training_settings = TrainingSettings()
