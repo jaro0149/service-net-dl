@@ -1,9 +1,7 @@
 import torch
 from torch import Tensor
 from torch.nn import Module
-from torch.utils.data import Subset
-
-from utils.torch_utils import IterableSubset
+from torch.utils.data import DataLoader
 
 
 class TextClassifier:
@@ -24,16 +22,15 @@ class TextClassifier:
 
     def classify_testing_data(
             self,
-            testing_data: Subset,
+            dataloader: DataLoader,
     ) -> tuple[list[int], list[int]]:
         """Generate forecasts and corresponding target indices by running a given model on the provided testing dataset.
 
-        This function iterates over the testing data
-        subset, processes each data sample, and predicts class indices corresponding
-        to the forecasting results. The predicted forecasts and actual target indices
-        are compiled into separate lists and returned as output.
+        This function iterates over the testing dataloader, processes each data batch, and predicts class indices
+        corresponding to the forecasting results.
+        The predicted forecasts and actual target indices are compiled into separate lists and returned as output.
 
-        :param testing_data: A subset of testing data containing labeled text samples to
+        :param dataloader: A DataLoader containing labeled text samples to
             be evaluated against the model.
 
         :return: A tuple containing two lists:
@@ -45,13 +42,16 @@ class TextClassifier:
 
         self.rnn.eval()
         with torch.no_grad():
-            for (label_tensor, text_tensor) in IterableSubset(testing_data):
-                output = self.rnn(text_tensor)
-                guess_idx = self.label_idx_from_output(output)
-                label_idx = label_tensor.item()
+            for (label_batch, text_batch) in dataloader:
+                output_batch = self.rnn(text_batch)
 
-                all_forecasts.append(guess_idx)
-                all_targets.append(label_idx)
+                for index in range(output_batch.size(0)):
+                    output = output_batch[index]
+                    guess_idx = self.label_idx_from_output(output.unsqueeze(0))
+                    label_idx = label_batch[index].item()
+
+                    all_forecasts.append(guess_idx)
+                    all_targets.append(label_idx)
 
         return all_forecasts, all_targets
 
