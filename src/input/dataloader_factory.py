@@ -19,15 +19,16 @@ class DatasetLoaderFactory(ABC):
             self,
             training_settings: TrainingSettings,
             aug_settings: TextAugmentationSettings,
-    ) -> DataLoader:
+    ) -> tuple[list[str], DataLoader]:
         """Create a DataLoader for training or evaluation based on provided training and augmentation settings.
 
         :param training_settings: Settings related to training, including parameters
              such as batch size and training ratio.
         :param aug_settings: Settings for text augmentation.
-        :return: A DataLoader configured to use an iterable dataset with specified
-             transformations and training parameters. The DataLoader is pinned for
-             memory optimization, and a custom collate function is used for batching.
+        :return: A tuple containing the unique labels list from the dataset and a DataLoader
+             configured to use an iterable dataset with specified transformations and training 
+             parameters. The DataLoader is pinned for memory optimization, and a custom collate 
+             function is used for batching.
         """
         transforms = self._transforms(aug_settings)
         shuffle_buffer_size = self._shuffle_buffer_size(training_settings)
@@ -43,12 +44,13 @@ class DatasetLoaderFactory(ABC):
             shuffle_buffer_size=shuffle_buffer_size,
             seed=training_settings.seed,
         )
-        return DataLoader(
+        dataloader = DataLoader(
             dataset=iterable_dataset,
             batch_size=training_settings.n_batch_size,
             pin_memory=self._train_mode,
             collate_fn=collate_dataset_batch,
         )
+        return base_dataset.labels_uniq, dataloader
 
     @abstractmethod
     def _transforms(self, aug_settings: TextAugmentationSettings) -> Callable[[str], str] | None:

@@ -27,11 +27,11 @@ def _run() -> None:
     torch.set_default_device(device)
 
     # loading data with data-loaders
-    train_dataloader = TrainingDatasetLoaderFactory().create_dataset_loader(
+    labels, train_dataloader = TrainingDatasetLoaderFactory().create_dataset_loader(
         training_settings=training_settings,
         aug_settings=aug_settings,
     )
-    test_dataloader = TestingDatasetLoaderFactory().create_dataset_loader(
+    labels, test_dataloader = TestingDatasetLoaderFactory().create_dataset_loader(
         training_settings=training_settings,
         aug_settings=aug_settings,
     )
