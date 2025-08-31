@@ -13,7 +13,7 @@ from settings import TextAugmentationSettings
 logger = logging.getLogger(__name__)
 
 
-class TextAugmenter:
+class TextAugmentations:
     """Text augmentation pipeline with configurable parameters."""
 
     def __init__(self, settings: TextAugmentationSettings | None = None) -> None:

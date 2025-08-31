@@ -10,12 +10,12 @@ from torch.utils.data import Subset
 from torchmetrics import Metric
 
 from settings import TrainingSettings
-from torch_utils import IterableSubset
+from utils.torch_utils import IterableSubset
 
 logger = logging.getLogger(__name__)
 
 
-class ModelTrainer:
+class RnnTrainer:
     """A class for training a machine learning model using PyTorch."""
 
     def __init__(

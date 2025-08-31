@@ -2,9 +2,9 @@ import logging
 
 import torch
 
-from dataloader_factory import TrainingDatasetLoaderFactory
+from input.dataloader_factory import TestingDatasetLoaderFactory, TrainingDatasetLoaderFactory
 from settings import ModelSettings, TextAugmentationSettings, TrainingSettings
-from torch_utils import get_device, set_seed
+from utils.torch_utils import get_device, set_seed
 
 logging.basicConfig(
     level=logging.INFO,
@@ -31,7 +31,7 @@ def _run() -> None:
         training_settings=training_settings,
         aug_settings=aug_settings,
     )
-    test_dataloader = TrainingDatasetLoaderFactory().create_dataset_loader(
+    test_dataloader = TestingDatasetLoaderFactory().create_dataset_loader(
         training_settings=training_settings,
         aug_settings=aug_settings,
     )

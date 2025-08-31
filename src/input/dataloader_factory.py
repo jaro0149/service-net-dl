@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 from collections.abc import Callable
 
+from network_services_dataset import NetworkServicesDataset, collate_dataset_batch
+from split_iterable_dataset import SplitIterableDataset
+from text_augmentations import TextAugmentations
 from torch.utils.data import DataLoader
 
-from input_transforms import combine_transforms, to_lowercase
-from network_services_dataset import NetworkServicesDataset, collate_dataset_batch
+from input.input_transforms import combine_transforms, to_lowercase
 from settings import TextAugmentationSettings, TrainingSettings
-from split_iterable_dataset import SplitIterableDataset
-from text_augmenter import TextAugmenter
 
 
 class DatasetLoaderFactory(ABC):
@@ -33,7 +33,7 @@ class DatasetLoaderFactory(ABC):
         shuffle_buffer_size = self._shuffle_buffer_size(training_settings)
 
         base_dataset = NetworkServicesDataset(
-            data_dir="./data/services",
+            data_dir=training_settings.data_dir,
             transforms=transforms,
         )
         iterable_dataset = SplitIterableDataset(
@@ -75,7 +75,7 @@ class TrainingDatasetLoaderFactory(DatasetLoaderFactory):
     _train_mode = True
 
     def _transforms(self, aug_settings: TextAugmentationSettings) -> Callable[[str], str] | None:
-        augmenter = TextAugmenter(aug_settings)
+        augmenter = TextAugmentations(aug_settings)
         return combine_transforms(
             augmenter.augment_text,
             to_lowercase,

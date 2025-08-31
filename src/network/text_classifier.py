@@ -1,12 +1,12 @@
 import torch
+from torch import Tensor
 from torch.nn import Module
 from torch.utils.data import Subset
 
-from output_transforms import label_idx_from_output
-from torch_utils import IterableSubset
+from utils.torch_utils import IterableSubset
 
 
-class Forecaster:
+class TextClassifier:
     """A forecasting utility that uses RNN to predict class indices based on textual data."""
 
     def __init__(
@@ -22,7 +22,7 @@ class Forecaster:
         self.rnn = rnn
         self.classes = classes
 
-    def forecast_on_testing_data(
+    def classify_testing_data(
             self,
             testing_data: Subset,
     ) -> tuple[list[int], list[int]]:
@@ -47,10 +47,24 @@ class Forecaster:
         with torch.no_grad():
             for (label_tensor, text_tensor) in IterableSubset(testing_data):
                 output = self.rnn(text_tensor)
-                guess_idx = label_idx_from_output(output)
+                guess_idx = self.label_idx_from_output(output)
                 label_idx = label_tensor.item()
 
                 all_forecasts.append(guess_idx)
                 all_targets.append(label_idx)
 
         return all_forecasts, all_targets
+
+    @staticmethod
+    def label_idx_from_output(output: Tensor) -> int:
+        """Convert the output of a model to the index of the label with the highest score.
+
+        :param output: Tensor containing the model's output scores for all labels
+        :return: Index of the label with the highest score from the output tensor
+        """
+        _, top_i = output.topk(1)
+        idx = top_i[0].item()
+        if not isinstance(idx, int):
+            msg = f"Expected int, but got {type(idx)}"
+            raise TypeError(msg)
+        return idx

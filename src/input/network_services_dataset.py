@@ -6,7 +6,7 @@ from torch import Tensor, long, tensor
 from torch.nn.utils.rnn import pad_sequence
 from torch.utils.data import IterableDataset
 
-from input_transforms import TXT_ENCODING, line_to_tensor
+from input.input_transforms import TXT_ENCODING, line_to_tensor
 
 
 class NetworkServicesDataset(IterableDataset):
