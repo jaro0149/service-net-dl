@@ -31,10 +31,11 @@ def _run() -> None:
         training_settings=training_settings,
         aug_settings=aug_settings,
     )
-    labels, test_dataloader = TestingDatasetLoaderFactory().create_dataset_loader(
+    _, test_dataloader = TestingDatasetLoaderFactory().create_dataset_loader(
         training_settings=training_settings,
         aug_settings=aug_settings,
     )
+    logger.info("Loaded dataset classes: %s", labels)
 
 
 if __name__ == "__main__":

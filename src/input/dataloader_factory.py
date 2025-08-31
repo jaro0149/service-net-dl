@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 from collections.abc import Callable
 
-from network_services_dataset import NetworkServicesDataset, collate_dataset_batch
-from split_iterable_dataset import SplitIterableDataset
-from text_augmentations import TextAugmentations
 from torch.utils.data import DataLoader
 
 from input.input_transforms import combine_transforms, to_lowercase
+from input.network_services_dataset import NetworkServicesDataset, collate_dataset_batch
+from input.split_iterable_dataset import SplitIterableDataset
+from input.text_augmentations import TextAugmentations
 from settings import TextAugmentationSettings, TrainingSettings
 
 
@@ -26,8 +26,8 @@ class DatasetLoaderFactory(ABC):
              such as batch size and training ratio.
         :param aug_settings: Settings for text augmentation.
         :return: A tuple containing the unique labels list from the dataset and a DataLoader
-             configured to use an iterable dataset with specified transformations and training 
-             parameters. The DataLoader is pinned for memory optimization, and a custom collate 
+             configured to use an iterable dataset with specified transformations and training
+             parameters. The DataLoader is pinned for memory optimization, and a custom collate
              function is used for batching.
         """
         transforms = self._transforms(aug_settings)
