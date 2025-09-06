@@ -3,15 +3,15 @@ import time
 
 import torch
 from torch.nn import NLLLoss
-from torch.optim import SGD
+from torch.optim import Adam
 from torchmetrics import Accuracy
 
 from input.dataloader_factory import TestingDatasetLoaderFactory, TrainingDatasetLoaderFactory
 from input.input_transforms import N_LETTERS
-from network.char_rnn import CharRNN
-from network.rnn_trainer import RnnTrainer
+from network.char_lstm import CharLSTM
+from network.lstm_trainer import LstmTrainer
 from network.text_classifier import TextClassifier
-from settings import ModelSettings, TextAugmentationSettings, TrainingSettings
+from settings import LstmModelSettings, TextAugmentationSettings, TrainingSettings
 from utils.plotter import plot_confusion_matrix, plot_loss_and_accuracy
 from utils.torch_utils import get_device, log_model_info, set_seed
 
@@ -27,7 +27,7 @@ class _TrainingProcess:
     def run(self) -> None:
         self._load_settings()
         set_seed(self.training_settings.seed)
-        self._set_device()
+        self.device = get_device()
         self._create_dataloaders()
         self._create_model()
         self._prepare_training_functions()
@@ -37,13 +37,9 @@ class _TrainingProcess:
 
     def _load_settings(self) -> None:
         self.training_settings = TrainingSettings()
-        self.model_settings = ModelSettings()
+        self.lstm_model_settings = LstmModelSettings()
         self.aug_settings = TextAugmentationSettings()
-        logger.info("Settings: %s, %s, %s", self.training_settings, self.model_settings, self.aug_settings)
-
-    def _set_device(self) -> None:
-        self.device = get_device()
-        torch.set_default_device(self.device)
+        logger.info("Settings: %s, %s, %s", self.training_settings, self.lstm_model_settings, self.aug_settings)
 
     def _create_dataloaders(self) -> None:
         self.labels, self.train_dataloader = TrainingDatasetLoaderFactory().create_dataset_loader(
@@ -58,28 +54,28 @@ class _TrainingProcess:
         logger.info("Loaded dataset classes: %s", self.labels)
 
     def _create_model(self) -> None:
-        self.rnn = CharRNN(
+        self.lstm = CharLSTM(
             input_size=N_LETTERS,
-            hidden_size=self.model_settings.n_hidden_units,
             output_size=self.num_classes,
+            model_settings=self.lstm_model_settings,
         ).to(self.device)
-        log_model_info(self.rnn, (1, 1, N_LETTERS))
+        log_model_info(self.lstm, (1, 1, N_LETTERS))
 
     def _prepare_training_functions(self) -> None:
         self.loss_fn = NLLLoss()
-        self.accuracy_metric = Accuracy(task="multiclass", num_classes=self.num_classes)
-        self.optimizer = SGD(params=self.rnn.parameters(), lr=self.training_settings.learning_rate)
+        self.accuracy_metric = Accuracy(task="multiclass", num_classes=self.num_classes).to(self.device)
+        self.optimizer = Adam(params=self.lstm.parameters(), lr=self.training_settings.learning_rate)
 
     def _train_model(self) -> None:
         logger.info("Starting training...")
         start = time.time()
-        model_trainer = RnnTrainer(
-            rnn=self.rnn,
+        model_trainer = LstmTrainer(
+            lstm=self.lstm,
             loss_fn=self.loss_fn,
             accuracy_metric=self.accuracy_metric,
             optimizer=self.optimizer,
         )
-        self.all_losses, self.all_accuracies = model_trainer.train_rnn(
+        self.all_losses, self.all_accuracies = model_trainer.train_lstm(
             training_dataloader=self.train_dataloader,
             testing_dataloader=self.test_dataloader,
             settings=self.training_settings,
@@ -89,7 +85,7 @@ class _TrainingProcess:
 
     def _plot_results(self) -> None:
         forecaster = TextClassifier(
-            rnn=self.rnn,
+            lstm=self.lstm,
             classes=self.labels,
         )
         all_forecasts, all_targets = forecaster.classify_testing_data(self.test_dataloader)
@@ -106,7 +102,7 @@ class _TrainingProcess:
 
     def _save_model(self) -> None:
         model_path = f"models/model_{time.strftime('%Y%m%d_%H%M%S')}.pt"
-        torch.save(self.rnn.state_dict(), model_path)
+        torch.save(self.lstm.state_dict(), model_path)
         logger.info("Saved trained model to %s", model_path)
 
 

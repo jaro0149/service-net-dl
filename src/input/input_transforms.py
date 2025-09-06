@@ -17,12 +17,12 @@ def line_to_tensor(line: str) -> Tensor:
     the resulting tensor.
 
     :param line: The input string to be converted into a tensor.
-    :return: A tensor with shape (len(line), 1, N_LETTERS), where each letter in the string
+    :return: A tensor with shape (len(line), N_LETTERS), where each letter in the string
         is one-hot encoded.
     """
-    output_tensor = torch.zeros(len(line), 1, N_LETTERS)
+    output_tensor = torch.zeros(len(line), N_LETTERS)
     for li, letter in enumerate(line):
-        output_tensor[li][0][_letter_to_index(letter)] = 1
+        output_tensor[li][_letter_to_index(letter)] = 1
     return output_tensor
 
 

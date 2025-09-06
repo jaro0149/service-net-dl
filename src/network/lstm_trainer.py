@@ -11,35 +11,36 @@ from settings import TrainingSettings
 logger = logging.getLogger(__name__)
 
 
-class RnnTrainer:
+class LstmTrainer:
     """A class for training a machine learning model using PyTorch."""
 
     def __init__(
             self,
-            rnn: Module,
+            lstm: Module,
             loss_fn: Module,
             accuracy_metric: Metric,
             optimizer: Optimizer,
     ) -> None:
         """Initialize the components required for processing recurrent neural networks.
 
-        :param rnn: Recurrent neural network module used for model definition.
+        :param lstm: Recurrent neural network module used for model definition.
         :param loss_fn: Loss function module used for calculating the model's error.
         :param accuracy_metric: Metric module used for evaluating the model's accuracy.
         :param optimizer: Optimizer module used for updating the model's parameters.
         """
-        self.rnn = rnn
+        self.lstm = lstm
         self.loss_fn = loss_fn
         self.accuracy_metric = accuracy_metric
         self.optimizer = optimizer
+        self.device = lstm.parameters().__next__().device
 
-    def train_rnn(
+    def train_lstm(
             self,
             training_dataloader: DataLoader,
             testing_dataloader: DataLoader,
             settings: TrainingSettings,
     ) -> tuple[list[float], list[float]]:
-        """Train a recurrent neural network (RNN) on a provided dataset using stochastic gradient descent (SGD).
+        """Train a recurrent neural network (LSTM) on a provided dataset using stochastic gradient descent (SGD).
 
         The model's performance is logged at regular intervals, and a record of the losses
         across epochs is maintained for potential analysis.
@@ -56,13 +57,13 @@ class RnnTrainer:
         all_accuracies: list[float] = []
 
         # Train the model
-        self.rnn.train()
+        self.lstm.train()
 
         for epoch_idx in range(1, settings.n_epochs + 1):
             # prepare the model for training - turn on dropout, batch norm, etc.
-            self.rnn.train()
+            self.lstm.train()
             # clear the gradients
-            self.rnn.zero_grad()
+            self.lstm.zero_grad()
 
             # train on each batch and compute mean loss
             loss_score = self._train_on_batch(training_dataloader)
@@ -85,11 +86,14 @@ class RnnTrainer:
         batch_count = 0
 
         for label_tensor, text_tensor in training_dataloader:
-            output = self.rnn.forward(text_tensor)
-            loss = self.loss_fn(output, label_tensor)
+            label_tensor_dev = label_tensor.to(self.device)
+            text_tensor_dev = text_tensor.to(self.device)
+
+            output = self.lstm.forward(text_tensor_dev)
+            loss = self.loss_fn(output, label_tensor_dev)
 
             loss.backward()
-            utils.clip_grad_norm_(self.rnn.parameters(), 3)
+            utils.clip_grad_norm_(self.lstm.parameters(), 3)
             self.optimizer.step()
             self.optimizer.zero_grad()
 
@@ -100,11 +104,14 @@ class RnnTrainer:
 
     def _compute_accuracy(self, testing_dataloader: DataLoader) -> float:
         self.accuracy_metric.reset()
-        self.rnn.eval()
+        self.lstm.eval()
 
         with torch.no_grad():
             for label_tensor, text_tensor in testing_dataloader:
-                output = self.rnn.forward(text_tensor)
-                self.accuracy_metric.update(output, label_tensor)
+                label_tensor_dev = label_tensor.to(self.device)
+                text_tensor_dev = text_tensor.to(self.device)
+
+                output = self.lstm.forward(text_tensor_dev)
+                self.accuracy_metric.update(output, label_tensor_dev)
 
         return self.accuracy_metric.compute().item()

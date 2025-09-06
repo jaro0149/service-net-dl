@@ -51,7 +51,7 @@ class NetworkServicesDataset(IterableDataset):
     def _process_text_file(self, filename: Path) -> Iterator[tuple[Tensor, Tensor]]:
         label = filename.stem
         label_idx = self.labels_uniq.index(label)
-        label_tensor = tensor([label_idx], dtype=long)
+        label_tensor = tensor(label_idx, dtype=long)
 
         with filename.open(encoding=TXT_ENCODING) as file:
             for line in file:

@@ -8,10 +8,10 @@ class TrainingSettings(BaseSettings):
     seed: int = Field(default=2025, description="Random seed for reproducibility")
     train_ratio: float = Field(default=0.85, description="Ratio of training dataset split")
     data_dir: str = Field(default="./data/services", description="Directory for storing training and testing datasets")
-    shuffle_buffer_size: int = Field(default=64, description="Size of the buffer used for shuffling")
+    shuffle_buffer_size: int = Field(default=2048, description="Size of the buffer used for shuffling")
     n_batch_size: int = Field(default=64, description="Training batch size")
-    learning_rate: float = Field(default=0.15, description="Learning rate for training")
-    n_epochs: int = Field(default=28, description="Number of training epochs")
+    learning_rate: float = Field(default=0.01, description="Learning rate for training")
+    n_epochs: int = Field(default=512, description="Number of training epochs")
     report_every: int = Field(default=1, description="Report metrics every N epochs")
 
     class Config:
@@ -21,10 +21,12 @@ class TrainingSettings(BaseSettings):
         case_sensitive = False
 
 
-class ModelSettings(BaseSettings):
-    """Configuration settings for model architecture."""
+class LstmModelSettings(BaseSettings):
+    """Configuration settings for LSTM-based model architecture."""
 
-    n_hidden_units: int = Field(default=128, description="Number of hidden units in the RNN")
+    n_hidden_units: int = Field(default=256, description="Number of hidden units in the one LSTM layer")
+    n_layers: int = Field(default=1, description="Number of layers in the LSTM")
+    dropout_p: float = Field(default=0.3, description="Dropout probability for the LSTM")
 
     class Config:
         """Configuration class for defining environment settings and options for a particular application."""

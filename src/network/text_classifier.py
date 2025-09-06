@@ -5,20 +5,21 @@ from torch.utils.data import DataLoader
 
 
 class TextClassifier:
-    """A forecasting utility that uses RNN to predict class indices based on textual data."""
+    """A forecasting utility that uses LSTM to predict class indices based on textual data."""
 
     def __init__(
             self,
-            rnn: Module,
+            lstm: Module,
             classes: list[str],
     ) -> None:
-        """Initialize the class with a recurrent neural network (RNN) module and a list of class labels.
+        """Initialize the class with a recurrent neural network (LSTM) module and a list of class labels.
 
-        :param rnn: A trained RNN-based `torch.nn.Module` model for making predictions.
+        :param lstm: A trained LSTM-based `torch.nn.Module` model for making predictions.
         :param classes: A list of strings representing the class labels.
         """
-        self.rnn = rnn
+        self.lstm = lstm
         self.classes = classes
+        self.device = lstm.parameters().__next__().device
 
     def classify_testing_data(
             self,
@@ -40,15 +41,17 @@ class TextClassifier:
         all_forecasts: list[int] = []
         all_targets: list[int] = []
 
-        self.rnn.eval()
+        self.lstm.eval()
         with torch.no_grad():
             for (label_batch, text_batch) in dataloader:
-                output_batch = self.rnn(text_batch)
+                label_batch_dev = label_batch.to(self.device)
+                text_batch_dev = text_batch.to(self.device)
+                output_batch = self.lstm(text_batch_dev)
 
                 for index in range(output_batch.size(0)):
                     output = output_batch[index]
                     guess_idx = self.label_idx_from_output(output.unsqueeze(0))
-                    label_idx = label_batch[index].item()
+                    label_idx = label_batch_dev[index].item()
 
                     all_forecasts.append(guess_idx)
                     all_targets.append(label_idx)
