@@ -1,3 +1,5 @@
+from enum import Enum
+
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
@@ -120,4 +122,26 @@ class TextAugmentationSettings(BaseSettings):
         """Configuration class for defining environment settings and options for a particular application."""
 
         env_prefix = "TEXT_AUG_"
+        case_sensitive = False
+
+
+class MonitorType(Enum):
+    """Enum for monitoring metric types."""
+
+    ACCURACY = "accuracy"
+    LOSS = "loss"
+
+
+class EarlyStoppingSettings(BaseSettings):
+    """Configuration settings for early stopping functionality."""
+
+    enabled: bool = Field(default=True, description="Enable early stopping")
+    patience: int = Field(default=10, description="Number of epochs to wait after the last improvement")
+    min_delta: float = Field(default=0.0, description="Minimum change to qualify as an improvement")
+    monitor: MonitorType = Field(default=MonitorType.ACCURACY, description="Metric to monitor (accuracy or loss)")
+
+    class Config:
+        """Configuration class for defining environment settings and options for a particular application."""
+
+        env_prefix = "EARLY_STOPPING_"
         case_sensitive = False
