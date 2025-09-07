@@ -8,7 +8,7 @@ class TrainingSettings(BaseSettings):
     seed: int = Field(default=2025, description="Random seed for reproducibility")
     train_ratio: float = Field(default=0.85, description="Ratio of training dataset split")
     data_dir: str = Field(default="./data/services", description="Directory for storing training and testing datasets")
-    shuffle_buffer_size: int = Field(default=2048, description="Size of the buffer used for shuffling")
+    shuffle_buffer_size: int = Field(default=128, description="Size of the buffer used for shuffling")
     n_batch_size: int = Field(default=64, description="Training batch size")
     learning_rate: float = Field(default=0.01, description="Learning rate for training")
     n_epochs: int = Field(default=512, description="Number of training epochs")

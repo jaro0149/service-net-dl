@@ -35,11 +35,7 @@ SMS Transfer Protocol Data Unit
 SMS Transfer
 SMS-PDU
 RP-DU
-Relay Protocol Data Unit
-Relay Protocol DU
 CP-DU
-Connection Protocol Data Unit
-Connection Protocol DU
 SMS-SUBMIT
 from MS to SMSC
 SMS-DELIVER
@@ -84,7 +80,6 @@ Forward short message
 Forward SMS
 MAP Subscriber
 SMS-specific use
-MAP SubscriberDataModified
 SMS-related triggers
 MAP SubscriberInformationEnquiry
 SMS over SGs
@@ -103,7 +98,6 @@ Fallback SMS
 SMS Notification
 SMS over VoLTE IMS RP-DATA
 SMS over VoLTE
-IMS RP-DATA
 IMS encapsulation of SMS
 IMS SIP MESSAGE method
 MESSAGE method
@@ -345,3 +339,111 @@ SMS Reachability
 Alert SMS Reachability
 users receiving broadcast alerts
 receiving broadcast alerts
+SMS Authentication
+Two-Factor Authentication SMS
+2FA SMS
+SMS Verification Code
+SMS OTP
+One-Time Password SMS
+SMS Login Verification
+SMS Password Reset
+SMS Account Recovery
+SMS Security Token
+SMS Backup Codes
+SMS Identity Verification
+SMS User Authentication
+SMS Multi-Factor Authentication
+MFA SMS
+SMS Banking Verification
+SMS Transaction Confirmation
+SMS Payment Notification
+SMS Purchase Confirmation
+SMS Order Status
+SMS Shipping Update
+SMS Delivery Notification
+SMS Appointment Reminder
+SMS Calendar Alert
+SMS Event Notification
+SMS Meeting Reminder
+SMS Schedule Update
+SMS Booking Confirmation
+SMS Reservation Alert
+SMS Check-in Reminder
+SMS Flight Update
+SMS Hotel Confirmation
+SMS Travel Alert
+SMS Itinerary Update
+SMS Weather Alert
+SMS News Update
+SMS Breaking News
+SMS Sports Score
+SMS Game Update
+SMS Match Result
+SMS Tournament Alert
+SMS League Update
+SMS Health Reminder
+SMS Medication Alert
+SMS Doctor Appointment
+SMS Prescription Reminder
+SMS Vaccine Notification
+SMS Medical Alert
+SMS Emergency Contact
+SMS Emergency Notification
+SMS Crisis Alert
+SMS Safety Warning
+SMS Security Alert
+SMS Fraud Alert
+SMS Account Alert
+SMS Login Alert
+SMS Suspicious Activity
+SMS Privacy Notice
+SMS Terms Update
+SMS Policy Change
+SMS Service Update
+SMS Maintenance Notice
+SMS System Alert
+SMS Downtime Notice
+SMS Service Restoration
+SMS Feature Update
+SMS App Update
+SMS Software Update
+SMS Version Update
+SMS Bug Fix
+SMS Patch Notification
+SMS Release Notes
+SMS Customer Survey
+SMS Feedback Request
+SMS Rating Request
+SMS Review Reminder
+SMS Satisfaction Survey
+SMS Poll Notification
+SMS Vote Reminder
+SMS Election Alert
+SMS Campaign Update
+SMS Political Alert
+SMS Community Notice
+SMS Public Announcement
+SMS School Alert
+SMS University Notice
+SMS Course Reminder
+SMS Exam Schedule
+SMS Grade Notification
+SMS Assignment Due
+SMS Class Cancellation
+SMS Library Notice
+SMS Fee Reminder
+SMS Tuition Alert
+SMS Scholarship Notice
+SMS Graduation Update
+SMS Job Alert
+SMS Interview Reminder
+SMS Application Status
+SMS Offer Letter
+SMS Contract Update
+SMS Payroll Notice
+SMS Timesheet Reminder
+SMS Shift Schedule
+SMS Work Assignment
+SMS Project Update
+SMS Task Reminder
+SMS Deadline Alert

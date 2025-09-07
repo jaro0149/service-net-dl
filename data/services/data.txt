@@ -161,10 +161,8 @@ Mail Transfer Protocol
 POP3
 Post Office Protocol v3
 IMAP
-Internet Message Access Protocol
 LMTP
 Local Mail Transfer Protocol
-MAPI
 Messaging Application Programming Interface
 Application Programming Interface
 NNTP
@@ -175,13 +173,13 @@ Extensible Messaging and Presence Protocol
 Messaging and Presence Protocol
 data chat
 MQTT
-Message Queuing Telemetry Transport
-Message Queuing
+Queuing Telemetry Transport
+Queuing
 Telemetry Transport
 IoT data
 IoT
 AMQP
-Advanced Message Queuing Protocol
+Advanced Queuing Protocol
 Queuing Protocol
 STOMP
 Streaming Text Oriented Messaging Protocol
@@ -246,9 +244,6 @@ NFS
 Network File System
 File System
 SMB
-Server Message Block
-Server Message
-Message Block
 CIFS
 AFP
 Apple Filing Protocol
@@ -402,3 +397,53 @@ HTTP/FTP Download Success Rate
 Download Success Rate
 data QoE metric
 data metric
+Software-Defined WAN
+Network Function Virtualization
+Virtual Network Functions
+Container Network Interface
+Network Slice Orchestration
+Distributed Data Processing
+Edge Data Computing
+Multi-Access Edge Computing
+Network Topology Discovery
+Data Center Fabric
+Intent-Based Networking
+Zero Trust Network Access
+Deep Packet Inspection
+Traffic Engineering
+Load Balancing Algorithms
+Network Capacity Planning
+Bandwidth Allocation
+Traffic Prioritization
+Congestion Avoidance
+Buffer Management
+Queue Scheduling
+Admission Control
+Carrier Aggregation
+Massive MIMO
+Beamforming
+Network Densification
+Small Cell Deployment
+Heterogeneous Networks
+Coordinated Multipoint
+Inter-Cell Interference Coordination
+Self-Organizing Networks
+Radio Access Network (RAN) Slicing
+Key Performance Indicators
+Service Level Agreement
+Mean Opinion Score
+Customer Experience Index
+Network Utilization Ratio
+Error Vector Magnitude
+Signal-to-Interference Ratio
+Block Error Rate
+Spectral Efficiency
+Energy Efficiency
+OpenFlow Protocol
+NETCONF Protocol
+YANG Data Models
+RESTCONF API
+gRPC Network Management
+P4 Programming Language
+Intent-Based APIs
+Telemetry Streaming Protocols

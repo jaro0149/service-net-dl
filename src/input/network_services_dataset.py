@@ -1,5 +1,6 @@
 from collections.abc import Callable, Iterator
 from pathlib import Path
+from typing import TextIO
 
 import torch
 from torch import Tensor, long, tensor
@@ -40,30 +41,71 @@ class NetworkServicesDataset(IterableDataset):
         self.labels_uniq = list(labels_set)
 
     def __iter__(self) -> Iterator[tuple[Tensor, Tensor]]:
-        """Iterate over the dataset, yielding (label_tensor, data_tensor) tuples.
+        """Iterate over the dataset in a round-robin fashion, yielding (label_tensor, data_tensor) tuples.
+
+        This method processes all files simultaneously in a round-robin manner to ensure that
+        consecutive batches contain entries from different files when possible.
 
         :yield: A tuple containing the label tensor and data tensor for each sample.
         """
         text_files = self._get_text_files(self.data_dir)
-        for filename in text_files:
-            yield from self._process_text_file(filename)
+        file_handles = self._open_files(text_files)
 
-    def _process_text_file(self, filename: Path) -> Iterator[tuple[Tensor, Tensor]]:
-        label = filename.stem
-        label_idx = self.labels_uniq.index(label)
+        try:
+            yield from self._round_robin_iteration(file_handles)
+        finally:
+            # Ensure all file handles are properly closed
+            for file_handle, _, _ in file_handles:
+                file_handle.close()
+
+    def _round_robin_iteration(self, file_handles: list[tuple[TextIO, str, int]]) -> Iterator[tuple[Tensor, Tensor]]:
+        """Perform round-robin iteration over file handles, yielding processed lines."""
+        # Keep track of active files (files that still have lines to read)
+        active_files = list(range(len(file_handles)))
+
+        while active_files:
+            files_to_remove = []
+
+            # Process one line from each active file in round-robin fashion
+            for file_idx in active_files:
+                file_handle, label, label_idx = file_handles[file_idx]
+
+                try:
+                    line = next(file_handle)
+                    result = self._process_line_from_file(line, label_idx)
+                    if result is not None:
+                        yield result
+                except StopIteration:
+                    # File is exhausted, mark it for removal
+                    files_to_remove.append(file_idx)
+
+            # Remove exhausted files from an active list
+            for file_idx in reversed(files_to_remove):
+                active_files.remove(file_idx)
+
+    def _process_line_from_file(self, line: str, label_idx: int) -> tuple[Tensor, Tensor] | None:
+        """Process a single line from a file and return tensors, or None if line should be skipped."""
+        keyword = line.strip()
+
+        if not keyword:
+            # Skip empty lines
+            return None
+
+        if self.transforms:
+            keyword = self.transforms(keyword)
+
         label_tensor = tensor(label_idx, dtype=long)
+        data_tensor = line_to_tensor(keyword)
+        return label_tensor, data_tensor
 
-        with filename.open(encoding=TXT_ENCODING) as file:
-            for line in file:
-                keyword = line.strip()
-                if not keyword:
-                    # skip empty lines
-                    continue
-                if self.transforms:
-                    keyword = self.transforms(keyword)
-
-                data_tensor = line_to_tensor(keyword)
-                yield label_tensor, data_tensor
+    def _open_files(self, text_files: list[Path]) -> list[tuple[TextIO, str, int]]:
+        file_handles: list[tuple[TextIO, str, int]] = []
+        for filename in text_files:
+            label = filename.stem
+            label_idx = self.labels_uniq.index(label)
+            file_handle = filename.open(encoding=TXT_ENCODING)
+            file_handles.append((file_handle, label, label_idx))
+        return file_handles
 
     @staticmethod
     def _get_text_files(data_dir: str) -> list[Path]:
