@@ -6,7 +6,8 @@ from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from torchmetrics import Metric
 
-from settings import TrainingSettings
+from network.early_stopping import EarlyStopping
+from settings import EarlyStoppingSettings, MonitorType, TrainingSettings
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +21,7 @@ class LstmTrainer:
             loss_fn: Module,
             accuracy_metric: Metric,
             optimizer: Optimizer,
+            early_stopping_settings: EarlyStoppingSettings,
     ) -> None:
         """Initialize the components required for processing recurrent neural networks.
 
@@ -27,11 +29,13 @@ class LstmTrainer:
         :param loss_fn: Loss function module used for calculating the model's error.
         :param accuracy_metric: Metric module used for evaluating the model's accuracy.
         :param optimizer: Optimizer module used for updating the model's parameters.
+        :param early_stopping_settings: Settings for early stopping of the training process.
         """
         self.lstm = lstm
         self.loss_fn = loss_fn
         self.accuracy_metric = accuracy_metric
         self.optimizer = optimizer
+        self.early_stopping_settings = early_stopping_settings
         self.device = lstm.parameters().__next__().device
 
     def train_lstm(
@@ -56,6 +60,9 @@ class LstmTrainer:
         all_losses: list[float] = []
         all_accuracies: list[float] = []
 
+        # Initialize early stopping if enabled
+        early_stopping = EarlyStopping(self.early_stopping_settings) if self.early_stopping_settings.enabled else None
+
         # Train the model
         self.lstm.train()
 
@@ -78,6 +85,19 @@ class LstmTrainer:
             if epoch_idx % settings.report_every == 0:
                 logger.info("%d (%d%%): \t average batch loss = %.4f, accuracy = %.4f",
                             epoch_idx, int(epoch_idx / settings.n_epochs * 100), all_losses[-1], accuracy_score)
+
+            # Check early stopping if enabled
+            if early_stopping is not None:
+                monitor_score = accuracy_score if self.early_stopping_settings.monitor == MonitorType.ACCURACY\
+                    else loss_score
+
+                if early_stopping(monitor_score, self.lstm):
+                    logger.info("Early stopping at epoch %d", epoch_idx)
+                    if early_stopping.best_model_state is not None:
+                        self.lstm.load_state_dict(early_stopping.best_model_state)
+                        logger.info("Restored best model state with %s: %.4f",
+                                    self.early_stopping_settings.monitor.value, early_stopping.best_score)
+                    break
 
         return all_losses, all_accuracies
 

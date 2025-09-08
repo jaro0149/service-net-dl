@@ -28,7 +28,7 @@ class LstmModelSettings(BaseSettings):
 
     n_hidden_units: int = Field(default=256, description="Number of hidden units in the one LSTM layer")
     n_layers: int = Field(default=1, description="Number of layers in the LSTM")
-    dropout_p: float = Field(default=0.3, description="Dropout probability for the LSTM")
+    dropout_p: float = Field(default=0.5, description="Dropout probability for the LSTM")
 
     class Config:
         """Configuration class for defining environment settings and options for a particular application."""
@@ -139,6 +139,10 @@ class EarlyStoppingSettings(BaseSettings):
     patience: int = Field(default=10, description="Number of epochs to wait after the last improvement")
     min_delta: float = Field(default=0.0, description="Minimum change to qualify as an improvement")
     monitor: MonitorType = Field(default=MonitorType.ACCURACY, description="Metric to monitor (accuracy or loss)")
+    start_from_metric: float = Field(
+        default=0.6,
+        description="Initial metric value to start monitoring improvement from",
+    )
 
     class Config:
         """Configuration class for defining environment settings and options for a particular application."""

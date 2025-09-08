@@ -11,7 +11,7 @@ from input.input_transforms import N_LETTERS
 from network.char_lstm import CharLSTM
 from network.lstm_trainer import LstmTrainer
 from network.text_classifier import TextClassifier
-from settings import LstmModelSettings, TextAugmentationSettings, TrainingSettings
+from settings import EarlyStoppingSettings, LstmModelSettings, TextAugmentationSettings, TrainingSettings
 from utils.plotter import plot_confusion_matrix, plot_loss_and_accuracy
 from utils.torch_utils import get_device, log_model_info, set_seed
 
@@ -39,6 +39,7 @@ class _TrainingProcess:
         self.training_settings = TrainingSettings()
         self.lstm_model_settings = LstmModelSettings()
         self.aug_settings = TextAugmentationSettings()
+        self.early_stopping_settings = EarlyStoppingSettings()
         logger.info("Settings: %s, %s, %s", self.training_settings, self.lstm_model_settings, self.aug_settings)
 
     def _create_dataloaders(self) -> None:
@@ -74,6 +75,7 @@ class _TrainingProcess:
             loss_fn=self.loss_fn,
             accuracy_metric=self.accuracy_metric,
             optimizer=self.optimizer,
+            early_stopping_settings=self.early_stopping_settings,
         )
         self.all_losses, self.all_accuracies = model_trainer.train_lstm(
             training_dataloader=self.train_dataloader,

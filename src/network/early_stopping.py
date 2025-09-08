@@ -34,6 +34,12 @@ class EarlyStopping:
         :return: True if training should stop, False otherwise
         """
         if self.settings.monitor == MonitorType.ACCURACY:
+            if self.counter == 0 and self.settings.start_from_metric > score:
+                return False
+        elif self.counter == 0 and self.settings.start_from_metric < score:
+            return False
+
+        if self.settings.monitor == MonitorType.ACCURACY:
             improved = self.best_score is None or score > self.best_score + self.settings.min_delta
         else:
             improved = self.best_score is None or score < self.best_score - self.settings.min_delta
@@ -50,6 +56,6 @@ class EarlyStopping:
 
             if self.counter >= self.settings.patience:
                 self.early_stop = True
-                logger.info("Early stopping triggered! Best %s: %.4f", self.settings.monitor.value, self.best_score)
+                logger.debug("Early stopping triggered! Best %s: %.4f", self.settings.monitor.value, self.best_score)
 
         return self.early_stop
