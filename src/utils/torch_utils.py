@@ -1,5 +1,6 @@
 import io
 import logging
+import random
 import sys
 from collections.abc import Iterator
 
@@ -66,19 +67,27 @@ def get_device() -> device:
 
 
 def log_model_info(
-        rnn: Module,
+        lstm: Module,
         input_size: tuple[int, ...],
 ) -> None:
     """Log the detailed summary of the provided PyTorch model.
 
-    :param rnn: The PyTorch model whose summary needs to be logged
+    :param lstm: The PyTorch model whose summary needs to be logged
     :param input_size: A tuple defining the size of the input tensor for the model
     """
     old_stdout = sys.stdout
     sys.stdout = captured_output = io.StringIO()
     try:
-        summary(rnn, input_size=input_size)
+        summary(lstm, input_size=input_size)
         summary_text = captured_output.getvalue()
         logger.info("Model summary:\n%s", summary_text)
     finally:
         sys.stdout = old_stdout
+
+
+def set_seed(seed: int) -> None:
+    """Set the seed for random number generation in PyTorch."""
+    random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)

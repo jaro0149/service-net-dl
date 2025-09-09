@@ -2,20 +2,18 @@ import logging
 import time
 
 import torch
-from torch import Generator
 from torch.nn import NLLLoss
-from torch.optim import SGD
-from torch.utils import data
+from torch.optim import Adam
 from torchmetrics import Accuracy
 
-from char_rnn import CharRNN
-from forecaster import Forecaster
-from input_transforms import N_LETTERS
-from model_trainer import ModelTrainer
-from names_dataset import NamesDataset
-from plotter import plot_confusion_matrix, plot_loss_and_accuracy
-from settings import DatasetSettings, ModelSettings, TrainingSettings
-from torch_utils import get_device, log_model_info
+from input.dataloader_factory import TestingDatasetLoaderFactory, TrainingDatasetLoaderFactory
+from input.input_transforms import N_LETTERS
+from network.char_lstm import CharLSTM
+from network.lstm_trainer import LstmTrainer
+from network.text_classifier import TextClassifier
+from settings import EarlyStoppingSettings, LstmModelSettings, TextAugmentationSettings, TrainingSettings
+from utils.plotter import plot_confusion_matrix, plot_loss_and_accuracy
+from utils.torch_utils import get_device, log_model_info, set_seed
 
 logging.basicConfig(
     level=logging.INFO,
@@ -23,71 +21,92 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def _run() -> None:
-    training_settings = TrainingSettings()
-    model_settings = ModelSettings()
-    dataset_settings = DatasetSettings()
-    logger.info("Starting training with settings: %s, %s, %s", training_settings, model_settings, dataset_settings)
 
-    device = get_device()
-    torch.set_default_device(device)
+class _TrainingProcess:
 
-    dataset = NamesDataset("data/names")
-    num_classes = len(dataset.labels_uniq)
-    logger.info("Loaded %d items of data", len(dataset))
+    def run(self) -> None:
+        self._load_settings()
+        set_seed(self.training_settings.seed)
+        self.device = get_device()
+        self._create_dataloaders()
+        self._create_model()
+        self._prepare_training_functions()
+        self._train_model()
+        self._plot_results()
+        self._save_model()
 
-    train_set, test_set = data.random_split(
-        dataset=dataset,
-        lengths=[dataset_settings.train_ratio, dataset_settings.test_ratio],
-        generator=Generator(device=device).manual_seed(2024),
-    )
-    logger.info("Split into train set (%d) and test set (%d)", len(train_set), len(test_set))
+    def _load_settings(self) -> None:
+        self.training_settings = TrainingSettings()
+        self.lstm_model_settings = LstmModelSettings()
+        self.aug_settings = TextAugmentationSettings()
+        self.early_stopping_settings = EarlyStoppingSettings()
+        logger.info("Settings: %s, %s, %s", self.training_settings, self.lstm_model_settings, self.aug_settings)
 
-    rnn = CharRNN(
-        input_size=N_LETTERS,
-        hidden_size=model_settings.n_hidden_units,
-        output_size=num_classes,
-    ).to(device)
-    log_model_info(rnn, (1, 1, N_LETTERS))
+    def _create_dataloaders(self) -> None:
+        self.labels, self.train_dataloader = TrainingDatasetLoaderFactory().create_dataset_loader(
+            training_settings=self.training_settings,
+            aug_settings=self.aug_settings,
+        )
+        _, self.test_dataloader = TestingDatasetLoaderFactory().create_dataset_loader(
+            training_settings=self.training_settings,
+            aug_settings=self.aug_settings,
+        )
+        self.num_classes = len(self.labels)
+        logger.info("Loaded dataset classes: %s", self.labels)
 
-    loss_fn = NLLLoss()
-    accuracy_metric = Accuracy(task="multiclass", num_classes=num_classes)
-    optimizer = SGD(params=rnn.parameters(), lr=training_settings.learning_rate)
+    def _create_model(self) -> None:
+        self.lstm = CharLSTM(
+            input_size=N_LETTERS,
+            output_size=self.num_classes,
+            model_settings=self.lstm_model_settings,
+        ).to(self.device)
+        log_model_info(self.lstm, (1, 1, N_LETTERS))
 
-    logger.info("Training on data set with n = %d", len(train_set))
-    start = time.time()
-    model_trainer = ModelTrainer(
-        rnn=rnn,
-        loss_fn=loss_fn,
-        accuracy_metric=accuracy_metric,
-        optimizer=optimizer,
-    )
-    all_losses, all_accuracies = model_trainer.train_rnn(
-        training_data=train_set,
-        testing_data=test_set,
-        settings=training_settings,
-    )
-    end = time.time()
-    logger.info("Training took %f seconds", end - start)
+    def _prepare_training_functions(self) -> None:
+        self.loss_fn = NLLLoss()
+        self.accuracy_metric = Accuracy(task="multiclass", num_classes=self.num_classes).to(self.device)
+        self.optimizer = Adam(params=self.lstm.parameters(), lr=self.training_settings.learning_rate)
 
-    # plot results
-    forecaster = Forecaster(
-        rnn=rnn,
-        classes=dataset.labels_uniq,
-    )
-    all_forecasts, all_targets = forecaster.forecast_on_testing_data(test_set)
+    def _train_model(self) -> None:
+        logger.info("Starting training...")
+        start = time.time()
+        model_trainer = LstmTrainer(
+            lstm=self.lstm,
+            loss_fn=self.loss_fn,
+            accuracy_metric=self.accuracy_metric,
+            optimizer=self.optimizer,
+            early_stopping_settings=self.early_stopping_settings,
+        )
+        self.all_losses, self.all_accuracies = model_trainer.train_lstm(
+            training_dataloader=self.train_dataloader,
+            testing_dataloader=self.test_dataloader,
+            settings=self.training_settings,
+        )
+        end = time.time()
+        logger.info("Training took %f seconds", end - start)
 
-    plot_loss_and_accuracy(losses=all_losses, accuracies=all_accuracies)
-    plot_confusion_matrix(
-        classes=dataset.labels_uniq,
-        forecasts=all_forecasts,
-        targets=all_targets,
-    )
+    def _plot_results(self) -> None:
+        forecaster = TextClassifier(
+            lstm=self.lstm,
+            classes=self.labels,
+        )
+        all_forecasts, all_targets = forecaster.classify_testing_data(self.test_dataloader)
 
-    # save a trained model with the current time in the filename
-    model_path = f"models/model_{time.strftime('%Y%m%d_%H%M%S')}.pt"
-    torch.save(rnn.state_dict(), model_path)
-    logger.info("Saved trained model to %s", model_path)
+        plot_loss_and_accuracy(
+            losses=self.all_losses,
+            accuracies=self.all_accuracies,
+        )
+        plot_confusion_matrix(
+            classes=self.labels,
+            forecasts=all_forecasts,
+            targets=all_targets,
+        )
+
+    def _save_model(self) -> None:
+        model_path = f"models/model_{time.strftime('%Y%m%d_%H%M%S')}.pt"
+        torch.save(self.lstm.state_dict(), model_path)
+        logger.info("Saved trained model to %s", model_path)
+
 
 if __name__ == "__main__":
-    _run()
+    _TrainingProcess().run()
